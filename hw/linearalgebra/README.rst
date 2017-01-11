@@ -1,3 +1,5 @@
+https://www.khanacademy.org/math/linear-algebra
+
 .. contents::
   :backlinks: top
 
