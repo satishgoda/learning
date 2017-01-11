@@ -1,2 +1,2 @@
 .. contents::
-    :backlinks: top
+  :backlinks: top
