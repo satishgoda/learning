@@ -1,10 +1,15 @@
-https://www.khanacademy.org/math/linear-algebra
-
 .. contents::
   :backlinks: top
 
-Projections
+Revision 1
+=========
+
+.. image:: projection_intro_mtx_form.jpeg
+
+Lesson Notes
 ===========
+
+https://www.khanacademy.org/math/linear-algebra
 
 .. image:: projection_intro.jpeg
 
