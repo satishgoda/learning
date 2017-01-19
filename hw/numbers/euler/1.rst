@@ -10,7 +10,7 @@
 
 Refactored version
 
-    In [81]: multiples = lambda n, ltnum: (map(lambda ni: n*ni, range(((ltnum-1)/n)+1)))
+    In [81]: multiples = lambda n, ltnum: (map(lambda ni: n*ni, range(1, ((ltnum-1)/n)+1)))
 
     In [82]: sum(multiples(3, 1000)) + sum(multiples(5, 1000)) - sum(multiples(3*5, 1000))
     
