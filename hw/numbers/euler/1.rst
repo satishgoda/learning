@@ -7,3 +7,11 @@
     mul15 = map(lambda x: 15*x, range(((1000-1)/15)+1))
     
     sum(mul3) + sum(mul5) - sum(mul15)
+
+Refactored version
+
+    In [81]: multiples = lambda n, ltnum: (map(lambda ni: n*ni, range(((ltnum-1)/n)+1)))
+
+    In [82]: sum(multiples(3, 1000)) + sum(multiples(5, 1000)) - sum(multiples(3*5, 1000))
+    
+    Out[82]: 233168
