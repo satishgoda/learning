@@ -52,18 +52,32 @@
 </v>
 </v>
 <v t="sgoda.20170122151657.1" a="E"><vh>About</vh>
-<v t="sgoda.20170122151716.1" a="E"><vh>@rst README</vh>
+<v t="sgoda.20170122151716.1"><vh>@rst README</vh>
 <v t="sgoda.20170122151812.1"><vh>Data Structures</vh></v>
 </v>
+<v t="sgoda.20170122154629.1" a="E"><vh>Linked List</vh>
+<v t="sgoda.20170122154817.1" a="E"><vh>Implementation</vh>
+<v t="sgoda.20170122154832.1" a="E"><vh>Python</vh>
+<v t="sgoda.20170122163236.1" a="E"><vh>@clean sll.py</vh>
+<v t="sgoda.20170122163250.1" a="E"><vh>class LinkedListNode</vh>
+<v t="sgoda.20170122163250.2"><vh>__init__</vh></v>
+<v t="sgoda.20170122163250.3"><vh>data</vh></v>
+<v t="sgoda.20170122163250.4"><vh>link</vh></v>
+<v t="sgoda.20170122163250.5"><vh>terminal_node</vh></v>
 </v>
-<v t="sgoda.20170122132226.1"><vh>Jamming</vh>
-<v t="sgoda.20170122132232.1" a="E"><vh>LinkedList</vh>
-<v t="sgoda.20170122144904.1" a="E"><vh>Implementations</vh>
-<v t="sgoda.20170122144926.1" a="E"><vh>Python</vh>
-<v t="sgoda.20170122144931.1"><vh>sll.py</vh></v>
+<v t="sgoda.20170122163250.6" a="E"><vh>class LinkedList</vh>
+<v t="sgoda.20170122163250.7"><vh>__init__</vh></v>
+<v t="sgoda.20170122163250.10"><vh>__repr__</vh></v>
+<v t="sgoda.20170122163250.8"><vh>number_of_items</vh></v>
+<v t="sgoda.20170122163250.9"><vh>add_node</vh></v>
 </v>
 </v>
 </v>
+</v>
+</v>
+</v>
+<v t="sgoda.20170122132226.1"><vh>Meta</vh>
+<v t="sgoda.20170122160247.1"><vh>Git Help</vh></v>
 </v>
 </vnodes>
 <tnodes>
@@ -255,74 +269,6 @@ for line in os.listdir(cwd):
 
 c.redraw()</t>
 <t tx="sgoda.20170122132226.1"></t>
-<t tx="sgoda.20170122132232.1">LinkedNode
-
-LinkedList = @0
-    num_of_elements = 0
-    ABSTRACT link
- 
-LinkedList = LinkedNode1 link LinkedNode1 link 3 link @0
-    num_of_elements = 3
-
-SingleLinkedList = @0
-    num_of_elements = 0
-
-SingleLinkedList = 1 -&gt; 2 -&gt; 3 -&gt; @0
-    num_of_elements = 3</t>
-<t tx="sgoda.20170122144904.1"></t>
-<t tx="sgoda.20170122144926.1"></t>
-<t tx="sgoda.20170122144931.1">@language python
-
-class LinkedListNode(object):
-    def __init__(self, data=None):
-        self._link = None
-        self._data = data
-    
-    @property
-    def data(self):
-        return self._data
-    
-    @property
-    def link(self):
-        return self._link
-    
-    @property
-    def terminal_node(self):
-        return self._link == None and self._data == None
-        
-
-class LinkedList(object):
-    def __init__(self):
-        self._root = LinkedListNode()
-        self._number_of_items = 0
-
-    @property
-    def number_of_items(self):
-        return self._number_of_items if self._root else 0
-    
-    def add_node(self, data):
-        node = LinkedListNode(data)
-        self._number_of_items += 1
-        node._link = self._root
-        self._root = node
-    
-    def __repr__(self):
-        llrepr = ""
-        node = self._root
-        
-        while not node.terminal_node:
-            llrepr += repr(node._data) + " -&gt; "
-            node = node.link
-        
-        return "&lt;{0} \"{1}\"&gt;".format(self.__class__.__name__, llrepr)
-
-if __name__ == '__main__':
-    ll = LinkedList()
-    g.es(ll)
-    ll.add_node(1)
-    g.es(ll)
-    ll.add_node(2)
-    g.es(ll)</t>
 <t tx="sgoda.20170122151657.1">@path ./ds</t>
 <t tx="sgoda.20170122151716.1">@language rest
 
@@ -381,5 +327,122 @@ Generates 'http-node-marker-'+str(number), where number is config.node_counter
 Removes @ignore, @nocolor, @wrap directives.
 </t>
 <t tx="sgoda.20170122152424.9"># Can be set by @rst-no-head headlines.</t>
+<t tx="sgoda.20170122154629.1">@path ll</t>
+<t tx="sgoda.20170122154817.1">@path impl</t>
+<t tx="sgoda.20170122154832.1">@path py</t>
+<t tx="sgoda.20170122160247.1">    [sgoda@goldbeef learning (develop)]$ git remote show origin
+    * remote origin
+      Fetch URL: https://github.com/satishgoda/learning.git
+      Push  URL: https://github.com/satishgoda/learning.git
+      HEAD branch: develop
+      Remote branches:
+        develop tracked
+        master  tracked
+        prg/ds  tracked
+      Local branch configured for 'git pull':
+        master merges with remote master
+      Local refs configured for 'git push':
+        develop pushes to develop (local out of date)
+        master  pushes to master  (up to date)
+        prg/ds  pushes to prg/ds  (up to date)
+    
+    [sgoda@goldbeef learning (develop)]$ git pull
+    There is no tracking information for the current branch.
+    Please specify which branch you want to merge with.
+    See git-pull(1) for details
+    
+        git pull &lt;remote&gt; &lt;branch&gt;
+    
+    If you wish to set tracking information for this branch you can do so with:
+    
+        git branch --set-upstream-to=origin/&lt;branch&gt; develop
+    
+    [sgoda@goldbeef learning (develop)]$ git branch --set-upstream-to=origin/develop develop
+    Branch develop set up to track remote branch develop from origin.
+    
+    [sgoda@goldbeef learning (develop)]$ git remote show origin
+    * remote origin
+      Fetch URL: https://github.com/satishgoda/learning.git
+      Push  URL: https://github.com/satishgoda/learning.git
+      HEAD branch: develop
+      Remote branches:
+        develop tracked
+        master  tracked
+        prg/ds  tracked
+      Local branches configured for 'git pull':
+        develop merges with remote develop
+        master  merges with remote master
+      Local refs configured for 'git push':
+        develop pushes to develop (local out of date)
+        master  pushes to master  (up to date)
+        prg/ds  pushes to prg/ds  (up to date)
+</t>
+<t tx="sgoda.20170122163236.1">
+@others
+@language python
+@tabwidth -4
+</t>
+<t tx="sgoda.20170122163250.1">class LinkedListNode(object):
+    @others
+</t>
+<t tx="sgoda.20170122163250.10">def __repr__(self):
+    llrepr = ""
+    node = self._root
+    
+    while not node.terminal_node:
+        llrepr += repr(node._data) + " -&gt; "
+        node = node.link
+    
+    return "&lt;{0} \"{1}\"&gt;".format(self.__class__.__name__, llrepr)
+
+</t>
+<t tx="sgoda.20170122163250.2">def __init__(self, data=None):
+    self._link = None
+    self._data = data
+
+</t>
+<t tx="sgoda.20170122163250.3">@property
+def data(self):
+    return self._data
+
+</t>
+<t tx="sgoda.20170122163250.4">@property
+def link(self):
+    return self._link
+
+</t>
+<t tx="sgoda.20170122163250.5">@property
+def terminal_node(self):
+    return self._link == None and self._data == None
+    
+
+</t>
+<t tx="sgoda.20170122163250.6">class LinkedList(object):
+    @others
+if __name__ == '__main__':
+    ll = LinkedList()
+    g.es(ll)
+    ll.add_node(1)
+    g.es(ll)
+    ll.add_node(2)
+    g.es(ll)
+</t>
+<t tx="sgoda.20170122163250.7">def __init__(self):
+    self._root = LinkedListNode()
+    self._number_of_items = 0
+
+</t>
+<t tx="sgoda.20170122163250.8">@property
+def number_of_items(self):
+    return self._number_of_items if self._root else 0
+
+</t>
+<t tx="sgoda.20170122163250.9">def add_node(self, data):
+    node = LinkedListNode(data)
+    self._number_of_items += 1
+    node._link = self._root
+    self._root = node
+
+</t>
 </tnodes>
 </leo_file>
