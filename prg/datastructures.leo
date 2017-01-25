@@ -30,7 +30,7 @@
 <v t="sgoda.20170122152424.15"><vh>@string rst3_default_path =</vh></v>
 <v t="sgoda.20170122152424.16"><vh>@string rst3_stylesheet_path = ..\doc</vh></v>
 <v t="sgoda.20170122152424.17"><vh>@string rst3_write_intermediate_extension = .rst</vh></v>
-<v t="sgoda.20170122152424.18" a="E"><vh>Http options...</vh>
+<v t="sgoda.20170122152424.18"><vh>Http options...</vh>
 <v t="sgoda.20170122152424.19"><vh>@bool rst3_clear_http_attributes = False</vh></v>
 <v t="sgoda.20170122152424.20"><vh>@string rst3_http_attributename = rst_http_attribute</vh></v>
 <v t="sgoda.20170122152424.21"><vh>@bool rst3_http_server_support = False</vh></v>
@@ -46,7 +46,7 @@
 <v t="sgoda.20170122132144.11"><vh>@button node_unmute @color=green</vh></v>
 <v t="sgoda.20170122132144.12"><vh>@button refresh-from-disk</vh></v>
 <v t="sgoda.20170122132144.13"><vh>@button gvim-yml-open @color=cream</vh></v>
-<v t="sgoda.20170122132144.14"><vh>@button create_node_sections.py color=yellow</vh></v>
+<v t="sgoda.20170122132144.14"><vh>@button create_node_sections.py @color=yellow</vh></v>
 </v>
 <v t="sgoda.20170122132144.15"><vh>Commands</vh></v>
 </v>
@@ -55,21 +55,69 @@
 <v t="sgoda.20170122151716.1"><vh>@rst README</vh>
 <v t="sgoda.20170122151812.1"><vh>Data Structures</vh></v>
 </v>
-<v t="sgoda.20170122154629.1" a="E"><vh>Linked List</vh>
+<v t="sgoda.20170122154629.1" a="E"><vh>@chapter Linked List</vh>
+<v t="sgoda.20170125172622.1" a="E"><vh>Linked Lists</vh>
 <v t="sgoda.20170122154817.1" a="E"><vh>Implementation</vh>
 <v t="sgoda.20170122154832.1" a="E"><vh>Python</vh>
-<v t="sgoda.20170122163236.1" a="E"><vh>@clean sll.py</vh>
-<v t="sgoda.20170122163250.1" a="E"><vh>class LinkedListNode</vh>
-<v t="sgoda.20170122163250.2"><vh>__init__</vh></v>
-<v t="sgoda.20170122163250.3"><vh>data</vh></v>
-<v t="sgoda.20170122163250.4"><vh>link</vh></v>
-<v t="sgoda.20170122163250.5"><vh>terminal_node</vh></v>
+<v t="sgoda.20170125173323.1" a="E"><vh>@clean sll.py</vh>
+<v t="sgoda.20170125173331.1" a="E"><vh>class LinkedListNode</vh>
+<v t="sgoda.20170125173331.2"><vh>__init__</vh></v>
+<v t="sgoda.20170125173331.3"><vh>data</vh></v>
+<v t="sgoda.20170125173331.4"><vh>link</vh></v>
+<v t="sgoda.20170125173331.5"><vh>terminal_node</vh></v>
 </v>
-<v t="sgoda.20170122163250.6" a="E"><vh>class LinkedList</vh>
-<v t="sgoda.20170122163250.7"><vh>__init__</vh></v>
-<v t="sgoda.20170122163250.10"><vh>__repr__</vh></v>
-<v t="sgoda.20170122163250.8"><vh>number_of_items</vh></v>
-<v t="sgoda.20170122163250.9"><vh>add_node</vh></v>
+<v t="sgoda.20170125173331.6" a="E"><vh>class LinkedList</vh>
+<v t="sgoda.20170125173331.7"><vh>__init__</vh></v>
+<v t="sgoda.20170125173331.8"><vh>__repr__</vh></v>
+<v t="sgoda.20170125173331.9"><vh>number_of_items</vh></v>
+<v t="sgoda.20170125173331.10"><vh>add_node</vh></v>
+</v>
+</v>
+</v>
+</v>
+</v>
+</v>
+<v t="sgoda.20170125131608.1" a="E"><vh>@chapter Graphs</vh>
+<v t="sgoda.20170125172633.1" a="E"><vh>Graphs</vh>
+<v t="sgoda.20170125131628.1" a="E"><vh>Examples</vh>
+<v t="sgoda.20170125131710.1" a="E"><vh>networkx</vh>
+<v t="sgoda.20170125131720.1" a="E"><vh>Leo based</vh>
+<v t="sgoda.20170125131943.1" a="E"><vh>Sandbox</vh>
+<v t="sgoda.20170125131957.1" a="E"><vh>idea</vh>
+<v t="sgoda.20170125164412.1"><vh>before</vh></v>
+<v t="sgoda.20170125164420.1" a="E"><vh>after</vh>
+<v t="sgoda.20170125165231.1" a="E"><vh>@nxgraph @type=graph @name=graph </vh>
+<v t="sgoda.20170125170946.1" a="E"><vh>@settings</vh>
+<v t="sgoda.20170125171001.1" a="E"><vh>@string dotFilePath='/srv/scratch/graph.dot'</vh>
+<v t="sgoda.20170125172952.1"><vh>@edit /srv/scratch/graph.dot</vh></v>
+</v>
+<v t="sgoda.20170125171026.1" a="E"><vh>@string svgFilePath='/srv/scratch/graph.svg'</vh>
+<v t="sgoda.20170125173018.1"><vh>@svg /srv/scratch/graph.svg</vh></v>
+</v>
+</v>
+<v t="sgoda.20170125165746.1" a="E"><vh>@nxnodes</vh>
+<v t="sgoda.20170125165848.1"><vh>@nxnode @name=a</vh></v>
+<v t="sgoda.20170125165907.1"><vh>@nxnode @name=b</vh></v>
+<v t="sgoda.20170125165909.1"><vh>@nxnode @name=c</vh></v>
+</v>
+<v t="sgoda.20170125165757.1" a="E"><vh>@nxedges</vh>
+<v t="sgoda.20170125165919.1" a="E"><vh>@nxedge</vh>
+<v t="sgoda.20170125165848.1"></v>
+<v t="sgoda.20170125165907.1"></v>
+</v>
+<v t="sgoda.20170125170048.1" a="E"><vh>@nxedge</vh>
+<v t="sgoda.20170125165848.1"></v>
+<v t="sgoda.20170125165909.1"></v>
+</v>
+<v t="sgoda.20170125170150.1" a="E"><vh>@nxedge</vh>
+<v t="sgoda.20170125165907.1"></v>
+<v t="sgoda.20170125165909.1"></v>
+</v>
+</v>
+</v>
+</v>
+</v>
+</v>
 </v>
 </v>
 </v>
@@ -377,15 +425,117 @@ Removes @ignore, @nocolor, @wrap directives.
         master  pushes to master  (up to date)
         prg/ds  pushes to prg/ds  (up to date)
 </t>
-<t tx="sgoda.20170122163236.1">
-@others
-@language python
-@tabwidth -4
+<t tx="sgoda.20170125131608.1"></t>
+<t tx="sgoda.20170125131628.1"></t>
+<t tx="sgoda.20170125131710.1"></t>
+<t tx="sgoda.20170125131720.1"></t>
+<t tx="sgoda.20170125131943.1"></t>
+<t tx="sgoda.20170125131957.1"></t>
+<t tx="sgoda.20170125164412.1">@language python
+
+import os
+
+import py
+
+import networkx as nx
+import pydot
+
+dg = nx.DiGraph(name="graph")
+
+dg.add_edge('a', 'b')
+dg.add_edge('a', 'c')
+dg.add_edge('b', 'c')
+
+scratch = py.path.local('/srv/scratch/')
+
+dotFilePath = scratch.join('graph.dot')
+
+# g.es(str(dotFilePath))
+
+nx.write_dot(dg, str(dotFilePath))
+
+graph = pydot.graph_from_dot_file(str(dotFilePath))[0]
+
+g.es(graph)
+
+svg_data = graph.create_svg()
+
+svgFilePath = scratch.join('graph.svg')
+
+svgFileHandle = svgFilePath.open(mode='wb')
+svgFileHandle.write(svg_data)
+svgFileHandle.close()
+
+os.system("firefox {0}".format(svgFilePath))</t>
+<t tx="sgoda.20170125164420.1"></t>
+<t tx="sgoda.20170125165231.1">
 </t>
-<t tx="sgoda.20170122163250.1">class LinkedListNode(object):
+<t tx="sgoda.20170125165746.1"></t>
+<t tx="sgoda.20170125165757.1"></t>
+<t tx="sgoda.20170125165848.1">A is for apple</t>
+<t tx="sgoda.20170125165907.1">B is for Boy</t>
+<t tx="sgoda.20170125165909.1">C is for Cat</t>
+<t tx="sgoda.20170125165919.1"></t>
+<t tx="sgoda.20170125170048.1"></t>
+<t tx="sgoda.20170125170150.1"></t>
+<t tx="sgoda.20170125170946.1"></t>
+<t tx="sgoda.20170125171001.1"></t>
+<t tx="sgoda.20170125171026.1"></t>
+<t tx="sgoda.20170125172622.1"></t>
+<t tx="sgoda.20170125172633.1"></t>
+<t tx="sgoda.20170125173018.1"></t>
+<t tx="sgoda.20170125173323.1">@language python
+@tabwidth -4
+@others
+</t>
+<t tx="sgoda.20170125173331.1">class LinkedListNode(object):
+    """"""
     @others
 </t>
-<t tx="sgoda.20170122163250.10">def __repr__(self):
+<t tx="sgoda.20170125173331.10">def add_node(self, data):
+    node = LinkedListNode(data)
+    self._number_of_items += 1
+    node._link = self._root
+    self._root = node
+
+</t>
+<t tx="sgoda.20170125173331.2">def __init__(self, data=None):
+    self._link = None
+    self._data = data
+
+</t>
+<t tx="sgoda.20170125173331.3">@property
+def data(self):
+    return self._data
+
+</t>
+<t tx="sgoda.20170125173331.4">@property
+def link(self):
+    return self._link
+
+</t>
+<t tx="sgoda.20170125173331.5">@property
+def terminal_node(self):
+    return self._link == None and self._data == None
+    
+
+</t>
+<t tx="sgoda.20170125173331.6">class LinkedList(object):
+    @others
+if __name__ == '__main__':
+    ll = LinkedList()
+    g.es(ll)
+    ll.add_node(1)
+    g.es(ll)
+    ll.add_node(2)
+    g.es(ll)
+</t>
+<t tx="sgoda.20170125173331.7">def __init__(self):
+    self._root = LinkedListNode()
+    self._number_of_items = 0
+
+</t>
+<t tx="sgoda.20170125173331.8">def __repr__(self):
     llrepr = ""
     node = self._root
     
@@ -396,52 +546,9 @@ Removes @ignore, @nocolor, @wrap directives.
     return "&lt;{0} \"{1}\"&gt;".format(self.__class__.__name__, llrepr)
 
 </t>
-<t tx="sgoda.20170122163250.2">def __init__(self, data=None):
-    self._link = None
-    self._data = data
-
-</t>
-<t tx="sgoda.20170122163250.3">@property
-def data(self):
-    return self._data
-
-</t>
-<t tx="sgoda.20170122163250.4">@property
-def link(self):
-    return self._link
-
-</t>
-<t tx="sgoda.20170122163250.5">@property
-def terminal_node(self):
-    return self._link == None and self._data == None
-    
-
-</t>
-<t tx="sgoda.20170122163250.6">class LinkedList(object):
-    @others
-if __name__ == '__main__':
-    ll = LinkedList()
-    g.es(ll)
-    ll.add_node(1)
-    g.es(ll)
-    ll.add_node(2)
-    g.es(ll)
-</t>
-<t tx="sgoda.20170122163250.7">def __init__(self):
-    self._root = LinkedListNode()
-    self._number_of_items = 0
-
-</t>
-<t tx="sgoda.20170122163250.8">@property
+<t tx="sgoda.20170125173331.9">@property
 def number_of_items(self):
     return self._number_of_items if self._root else 0
-
-</t>
-<t tx="sgoda.20170122163250.9">def add_node(self, data):
-    node = LinkedListNode(data)
-    self._number_of_items += 1
-    node._link = self._root
-    self._root = node
 
 </t>
 </tnodes>
