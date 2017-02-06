@@ -1,7 +1,7 @@
 .. contents::
   :backlinks: top
   
-  Menubar
-  =======
+Menubar
+=======
   
-  .. image:: jupyter-notebook_menubar_widgets_save-with-snapshots.png
+.. image:: jupyter-notebook_menubar_widgets_save-with-snapshots.png
