@@ -18,3 +18,4 @@ About
 * http://reactivex.io
 * http://reactivex.io/intro.html
 * https://twitter.com/hashtag/rxpy?src=hash
+* https://gist.github.com/thomasnield/19f052485598c6a8dcbdc90df5c8f64c#file-reactive_data_analysis-py
