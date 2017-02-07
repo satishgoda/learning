@@ -3,7 +3,7 @@ import org.graphstream.graph.implementations.*;
 
 public class Tutorial1 {
 	public static void main(String args[]) {
-		Graph graph = new SingleGraph("Tutorial 1");
+        Graph graph = new SingleGraph("Tutorial 1");
 
         graph.setStrict(false);
         graph.setAutoCreate(true);
