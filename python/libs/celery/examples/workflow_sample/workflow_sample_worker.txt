@@ -1,0 +1,241 @@
+[sgoda@goldbeef celery_workflow]$ celery -A workflow_sample worker --loglevel=debug
+
+[2017-02-08 15:10:33,912: DEBUG/MainProcess] | Worker: Preparing bootsteps.
+[2017-02-08 15:10:33,914: DEBUG/MainProcess] | Worker: Building graph...
+[2017-02-08 15:10:33,914: DEBUG/MainProcess] | Worker: New boot order: {StateDB, Timer, Hub, Pool, Autoscaler, Beat, Consumer}
+[2017-02-08 15:10:33,925: DEBUG/MainProcess] | Consumer: Preparing bootsteps.
+[2017-02-08 15:10:33,925: DEBUG/MainProcess] | Consumer: Building graph...
+[2017-02-08 15:10:33,940: DEBUG/MainProcess] | Consumer: New boot order: {Connection, Events, Mingle, Tasks, Control, Agent, Gossip, Heart, event loop}
+ 
+ -------------- celery@goldbeef.anim.odw.com.cn v4.0.2 (latentcall)
+---- **** ----- 
+--- * ***  * -- Linux-2.6.32-431.el6.x86_64-x86_64-with-redhat-6.4-Santiago 2017-02-08 15:10:33
+-- * - **** --- 
+- ** ---------- [config]
+- ** ---------- .> app:         workflow_sample:0x7f34d42d1400
+- ** ---------- .> transport:   redis://localhost:6379/0
+- ** ---------- .> results:     disabled://
+- *** --- * --- .> concurrency: 12 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+[tasks]
+  . celery.accumulate
+  . celery.backend_cleanup
+  . celery.chain
+  . celery.chord
+  . celery.chord_unlock
+  . celery.chunks
+  . celery.group
+  . celery.map
+  . celery.starmap
+  . workflow_sample.run_workflow
+
+[2017-02-08 15:10:33,948: DEBUG/MainProcess] | Worker: Starting Hub
+[2017-02-08 15:10:33,948: DEBUG/MainProcess] ^-- substep ok
+[2017-02-08 15:10:33,948: DEBUG/MainProcess] | Worker: Starting Pool
+[2017-02-08 15:10:34,114: DEBUG/MainProcess] ^-- substep ok
+[2017-02-08 15:10:34,114: DEBUG/MainProcess] | Worker: Starting Consumer
+[2017-02-08 15:10:34,115: DEBUG/MainProcess] | Consumer: Starting Connection
+[2017-02-08 15:10:34,125: INFO/MainProcess] Connected to redis://localhost:6379/0
+[2017-02-08 15:10:34,125: DEBUG/MainProcess] ^-- substep ok
+[2017-02-08 15:10:34,125: DEBUG/MainProcess] | Consumer: Starting Events
+[2017-02-08 15:10:34,131: DEBUG/MainProcess] ^-- substep ok
+[2017-02-08 15:10:34,132: DEBUG/MainProcess] | Consumer: Starting Mingle
+[2017-02-08 15:10:34,132: INFO/MainProcess] mingle: searching for neighbors
+[2017-02-08 15:10:35,149: INFO/MainProcess] mingle: all alone
+[2017-02-08 15:10:35,150: DEBUG/MainProcess] ^-- substep ok
+[2017-02-08 15:10:35,150: DEBUG/MainProcess] | Consumer: Starting Tasks
+[2017-02-08 15:10:35,155: DEBUG/MainProcess] ^-- substep ok
+[2017-02-08 15:10:35,155: DEBUG/MainProcess] | Consumer: Starting Control
+[2017-02-08 15:10:35,158: DEBUG/MainProcess] ^-- substep ok
+[2017-02-08 15:10:35,159: DEBUG/MainProcess] | Consumer: Starting Gossip
+[2017-02-08 15:10:35,160: DEBUG/MainProcess] ^-- substep ok
+[2017-02-08 15:10:35,161: DEBUG/MainProcess] | Consumer: Starting Heart
+[2017-02-08 15:10:35,161: DEBUG/MainProcess] ^-- substep ok
+[2017-02-08 15:10:35,162: DEBUG/MainProcess] | Consumer: Starting event loop
+[2017-02-08 15:10:35,162: INFO/MainProcess] celery@goldbeef.anim.odw.com.cn ready.
+[2017-02-08 15:10:35,162: DEBUG/MainProcess] | Worker: Hub.register Pool...
+[2017-02-08 15:10:35,162: DEBUG/MainProcess] basic.qos: prefetch_count->48
+[2017-02-08 15:10:42,471: INFO/MainProcess] Received task: workflow_sample.run_workflow[263146a6-38d4-46e5-975f-51e2e66c1321]  
+[2017-02-08 15:10:42,471: DEBUG/MainProcess] TaskPool: Apply <function _fast_trace_task at 0x7f34d426b6a8> (args:('workflow_sample.run_workflow', '263146a6-38d4-46e5-975f-51e2e66c1321', {'id': '263146a6-38d4-46e5-975f-51e2e66c1321', 'eta': None, 'kwargsrepr': '{}', 'argsrepr': "([{'value': 10}, {'value': 20}, {'value': 30}],)", 'timelimit': [None, None], 'reply_to': '274ff7bf-f248-3fe4-953b-1b32173c0055', 'root_id': '263146a6-38d4-46e5-975f-51e2e66c1321', 'retries': 0, 'expires': None, 'lang': 'py', 'parent_id': None, 'delivery_info': {'priority': 0, 'routing_key': 'celery', 'redelivered': None, 'exchange': ''}, 'correlation_id': '263146a6-38d4-46e5-975f-51e2e66c1321', 'origin': 'gen20077@goldbeef.anim.odw.com.cn', 'group': None, 'task': 'workflow_sample.run_workflow'}, b'[[[{"value": 10}, {"value": 20}, {"value": 30}]], {}, {"callbacks": null, "chain": null, "chord": null, "errbacks": null}]', 'application/json', 'utf-8') kwargs:{})
+[2017-02-08 15:10:42,472: DEBUG/MainProcess] Task accepted: workflow_sample.run_workflow[263146a6-38d4-46e5-975f-51e2e66c1321] pid:20068
+[2017-02-08 15:10:42,482: WARNING/PoolWorker-9] DEBUG 2017-02-08 15:10:42,482 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([0].) callback add for obj: {'value': 10}
+[2017-02-08 15:10:42,482: WARNING/PoolWorker-9] DEBUG 2017-02-08 15:10:42,482 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([1].) callback print_res for obj: {'value': 12}
+[2017-02-08 15:10:42,482: WARNING/PoolWorker-9] 12
+[2017-02-08 15:10:42,483: WARNING/PoolWorker-9] DEBUG 2017-02-08 15:10:42,483 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([0].) callback add for obj: {'value': 20}
+[2017-02-08 15:10:42,483: WARNING/PoolWorker-9] DEBUG 2017-02-08 15:10:42,483 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([1].) callback print_res for obj: {'value': 22}
+[2017-02-08 15:10:42,483: WARNING/PoolWorker-9] 22
+[2017-02-08 15:10:42,483: WARNING/PoolWorker-9] DEBUG 2017-02-08 15:10:42,483 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([0].) callback add for obj: {'value': 30}
+[2017-02-08 15:10:42,483: WARNING/PoolWorker-9] DEBUG 2017-02-08 15:10:42,483 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([1].) callback print_res for obj: {'value': 32}
+[2017-02-08 15:10:42,484: WARNING/PoolWorker-9] 32
+[2017-02-08 15:10:42,484: INFO/PoolWorker-9] Task workflow_sample.run_workflow[263146a6-38d4-46e5-975f-51e2e66c1321] succeeded in 0.011963607001234777s: None
+[2017-02-08 15:11:01,597: INFO/MainProcess] Received task: workflow_sample.run_workflow[f05ca2d8-e7cf-4aff-bb57-b8bfa71214f4]  
+[2017-02-08 15:11:01,597: DEBUG/MainProcess] TaskPool: Apply <function _fast_trace_task at 0x7f34d426b6a8> (args:('workflow_sample.run_workflow', 'f05ca2d8-e7cf-4aff-bb57-b8bfa71214f4', {'id': 'f05ca2d8-e7cf-4aff-bb57-b8bfa71214f4', 'expires': None, 'kwargsrepr': '{}', 'argsrepr': "([{'value': 10}, {'value': 20}, {'value': 30}],)", 'timelimit': [None, None], 'reply_to': '08ec6981-e5e8-33dd-b221-0cba2c53689a', 'root_id': 'f05ca2d8-e7cf-4aff-bb57-b8bfa71214f4', 'retries': 0, 'eta': None, 'lang': 'py', 'parent_id': None, 'delivery_info': {'priority': 0, 'routing_key': 'celery', 'redelivered': None, 'exchange': ''}, 'correlation_id': 'f05ca2d8-e7cf-4aff-bb57-b8bfa71214f4', 'origin': 'gen20095@goldbeef.anim.odw.com.cn', 'group': None, 'task': 'workflow_sample.run_workflow'}, b'[[[{"value": 10}, {"value": 20}, {"value": 30}]], {}, {"callbacks": null, "chain": null, "chord": null, "errbacks": null}]', 'application/json', 'utf-8') kwargs:{})
+[2017-02-08 15:11:01,598: DEBUG/MainProcess] Task accepted: workflow_sample.run_workflow[f05ca2d8-e7cf-4aff-bb57-b8bfa71214f4] pid:20069
+[2017-02-08 15:11:01,607: WARNING/PoolWorker-10] DEBUG 2017-02-08 15:11:01,606 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([0].) callback add for obj: {'value': 10}
+[2017-02-08 15:11:01,607: WARNING/PoolWorker-10] DEBUG 2017-02-08 15:11:01,607 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([1].) callback print_res for obj: {'value': 12}
+[2017-02-08 15:11:01,607: WARNING/PoolWorker-10] 12
+[2017-02-08 15:11:01,607: WARNING/PoolWorker-10] DEBUG 2017-02-08 15:11:01,607 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([0].) callback add for obj: {'value': 20}
+[2017-02-08 15:11:01,607: WARNING/PoolWorker-10] DEBUG 2017-02-08 15:11:01,607 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([1].) callback print_res for obj: {'value': 22}
+[2017-02-08 15:11:01,607: WARNING/PoolWorker-10] 22
+[2017-02-08 15:11:01,607: WARNING/PoolWorker-10] DEBUG 2017-02-08 15:11:01,607 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([0].) callback add for obj: {'value': 30}
+[2017-02-08 15:11:01,608: WARNING/PoolWorker-10] DEBUG 2017-02-08 15:11:01,608 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([1].) callback print_res for obj: {'value': 32}
+[2017-02-08 15:11:01,608: WARNING/PoolWorker-10] 32
+[2017-02-08 15:11:01,608: INFO/PoolWorker-10] Task workflow_sample.run_workflow[f05ca2d8-e7cf-4aff-bb57-b8bfa71214f4] succeeded in 0.009737308995681815s: None
+[2017-02-08 15:11:14,586: INFO/MainProcess] Received task: workflow_sample.run_workflow[4e0ae8ab-5d47-4a9e-8d54-4cb89399afb0]  
+[2017-02-08 15:11:14,586: DEBUG/MainProcess] TaskPool: Apply <function _fast_trace_task at 0x7f34d426b6a8> (args:('workflow_sample.run_workflow', '4e0ae8ab-5d47-4a9e-8d54-4cb89399afb0', {'id': '4e0ae8ab-5d47-4a9e-8d54-4cb89399afb0', 'expires': None, 'group': None, 'argsrepr': "([{'value': 10}, {'value': 20}, {'value': 30}],)", 'lang': 'py', 'reply_to': 'eb33a9d6-2f76-3dff-b1e9-e72309b1068b', 'root_id': '4e0ae8ab-5d47-4a9e-8d54-4cb89399afb0', 'retries': 0, 'eta': None, 'timelimit': [None, None], 'parent_id': None, 'delivery_info': {'priority': 0, 'routing_key': 'celery', 'redelivered': None, 'exchange': ''}, 'correlation_id': '4e0ae8ab-5d47-4a9e-8d54-4cb89399afb0', 'origin': 'gen20112@goldbeef.anim.odw.com.cn', 'kwargsrepr': '{}', 'task': 'workflow_sample.run_workflow'}, b'[[[{"value": 10}, {"value": 20}, {"value": 30}]], {}, {"chord": null, "chain": null, "errbacks": null, "callbacks": null}]', 'application/json', 'utf-8') kwargs:{})
+[2017-02-08 15:11:14,587: DEBUG/MainProcess] Task accepted: workflow_sample.run_workflow[4e0ae8ab-5d47-4a9e-8d54-4cb89399afb0] pid:20067
+[2017-02-08 15:11:14,595: WARNING/PoolWorker-8] DEBUG 2017-02-08 15:11:14,594 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([0].) callback add for obj: {'value': 10}
+[2017-02-08 15:11:14,595: WARNING/PoolWorker-8] DEBUG 2017-02-08 15:11:14,595 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([1].) callback print_res for obj: {'value': 12}
+[2017-02-08 15:11:14,595: WARNING/PoolWorker-8] 12
+[2017-02-08 15:11:14,595: WARNING/PoolWorker-8] DEBUG 2017-02-08 15:11:14,595 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([0].) callback add for obj: {'value': 20}
+[2017-02-08 15:11:14,595: WARNING/PoolWorker-8] DEBUG 2017-02-08 15:11:14,595 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([1].) callback print_res for obj: {'value': 22}
+[2017-02-08 15:11:14,595: WARNING/PoolWorker-8] 22
+[2017-02-08 15:11:14,595: WARNING/PoolWorker-8] DEBUG 2017-02-08 15:11:14,595 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([0].) callback add for obj: {'value': 30}
+[2017-02-08 15:11:14,596: WARNING/PoolWorker-8] DEBUG 2017-02-08 15:11:14,595 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([1].) callback print_res for obj: {'value': 32}
+[2017-02-08 15:11:14,596: WARNING/PoolWorker-8] 32
+[2017-02-08 15:11:14,596: INFO/PoolWorker-8] Task workflow_sample.run_workflow[4e0ae8ab-5d47-4a9e-8d54-4cb89399afb0] succeeded in 0.008719063000171445s: None
+[2017-02-08 15:11:18,585: INFO/MainProcess] Received task: workflow_sample.run_workflow[23594755-7d69-4fa1-85be-3020a658bbc4]  
+[2017-02-08 15:11:18,585: DEBUG/MainProcess] TaskPool: Apply <function _fast_trace_task at 0x7f34d426b6a8> (args:('workflow_sample.run_workflow', '23594755-7d69-4fa1-85be-3020a658bbc4', {'id': '23594755-7d69-4fa1-85be-3020a658bbc4', 'expires': None, 'kwargsrepr': '{}', 'argsrepr': "([{'value': 10}, {'value': 20}, {'value': 30}],)", 'timelimit': [None, None], 'reply_to': 'a6e207cf-7acc-3609-8364-e8afb1356822', 'root_id': '23594755-7d69-4fa1-85be-3020a658bbc4', 'retries': 0, 'eta': None, 'lang': 'py', 'parent_id': None, 'delivery_info': {'priority': 0, 'routing_key': 'celery', 'redelivered': None, 'exchange': ''}, 'correlation_id': '23594755-7d69-4fa1-85be-3020a658bbc4', 'origin': 'gen20124@goldbeef.anim.odw.com.cn', 'group': None, 'task': 'workflow_sample.run_workflow'}, b'[[[{"value": 10}, {"value": 20}, {"value": 30}]], {}, {"errbacks": null, "callbacks": null, "chain": null, "chord": null}]', 'application/json', 'utf-8') kwargs:{})
+[2017-02-08 15:11:18,586: DEBUG/MainProcess] Task accepted: workflow_sample.run_workflow[23594755-7d69-4fa1-85be-3020a658bbc4] pid:20065
+[2017-02-08 15:11:18,593: WARNING/PoolWorker-6] DEBUG 2017-02-08 15:11:18,593 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([0].) callback add for obj: {'value': 10}
+[2017-02-08 15:11:18,593: WARNING/PoolWorker-6] DEBUG 2017-02-08 15:11:18,593 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([1].) callback print_res for obj: {'value': 12}
+[2017-02-08 15:11:18,594: WARNING/PoolWorker-6] 12
+[2017-02-08 15:11:18,594: WARNING/PoolWorker-6] DEBUG 2017-02-08 15:11:18,594 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([0].) callback add for obj: {'value': 20}
+[2017-02-08 15:11:18,594: WARNING/PoolWorker-6] DEBUG 2017-02-08 15:11:18,594 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([1].) callback print_res for obj: {'value': 22}
+[2017-02-08 15:11:18,594: WARNING/PoolWorker-6] 22
+[2017-02-08 15:11:18,594: WARNING/PoolWorker-6] DEBUG 2017-02-08 15:11:18,594 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([0].) callback add for obj: {'value': 30}
+[2017-02-08 15:11:18,594: WARNING/PoolWorker-6] DEBUG 2017-02-08 15:11:18,594 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([1].) callback print_res for obj: {'value': 32}
+[2017-02-08 15:11:18,594: WARNING/PoolWorker-6] 32
+[2017-02-08 15:11:18,595: INFO/PoolWorker-6] Task workflow_sample.run_workflow[23594755-7d69-4fa1-85be-3020a658bbc4] succeeded in 0.00858261100074742s: None
+[2017-02-08 15:11:24,623: INFO/MainProcess] Received task: workflow_sample.run_workflow[3c380deb-3a51-4850-ad68-a003f8bd2784]  
+[2017-02-08 15:11:24,623: DEBUG/MainProcess] TaskPool: Apply <function _fast_trace_task at 0x7f34d426b6a8> (args:('workflow_sample.run_workflow', '3c380deb-3a51-4850-ad68-a003f8bd2784', {'id': '3c380deb-3a51-4850-ad68-a003f8bd2784', 'expires': None, 'kwargsrepr': '{}', 'argsrepr': "([{'value': 10}, {'value': 20}, {'value': 30}],)", 'lang': 'py', 'reply_to': '00e4704c-6426-3b2a-a51d-4317c139afbd', 'root_id': '3c380deb-3a51-4850-ad68-a003f8bd2784', 'retries': 0, 'eta': None, 'timelimit': [None, None], 'parent_id': None, 'delivery_info': {'priority': 0, 'routing_key': 'celery', 'redelivered': None, 'exchange': ''}, 'correlation_id': '3c380deb-3a51-4850-ad68-a003f8bd2784', 'origin': 'gen20135@goldbeef.anim.odw.com.cn', 'group': None, 'task': 'workflow_sample.run_workflow'}, b'[[[{"value": 10}, {"value": 20}, {"value": 30}]], {}, {"errbacks": null, "callbacks": null, "chord": null, "chain": null}]', 'application/json', 'utf-8') kwargs:{})
+[2017-02-08 15:11:24,623: DEBUG/MainProcess] Task accepted: workflow_sample.run_workflow[3c380deb-3a51-4850-ad68-a003f8bd2784] pid:20064
+[2017-02-08 15:11:24,631: WARNING/PoolWorker-5] DEBUG 2017-02-08 15:11:24,630 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([0].) callback add for obj: {'value': 10}
+[2017-02-08 15:11:24,631: WARNING/PoolWorker-5] DEBUG 2017-02-08 15:11:24,631 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([1].) callback print_res for obj: {'value': 12}
+[2017-02-08 15:11:24,631: WARNING/PoolWorker-5] 12
+[2017-02-08 15:11:24,631: WARNING/PoolWorker-5] DEBUG 2017-02-08 15:11:24,631 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([0].) callback add for obj: {'value': 20}
+[2017-02-08 15:11:24,631: WARNING/PoolWorker-5] DEBUG 2017-02-08 15:11:24,631 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([1].) callback print_res for obj: {'value': 22}
+[2017-02-08 15:11:24,631: WARNING/PoolWorker-5] 22
+[2017-02-08 15:11:24,631: WARNING/PoolWorker-5] DEBUG 2017-02-08 15:11:24,631 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([0].) callback add for obj: {'value': 30}
+[2017-02-08 15:11:24,632: WARNING/PoolWorker-5] DEBUG 2017-02-08 15:11:24,632 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([1].) callback print_res for obj: {'value': 32}
+[2017-02-08 15:11:24,632: WARNING/PoolWorker-5] 32
+[2017-02-08 15:11:24,632: INFO/PoolWorker-5] Task workflow_sample.run_workflow[3c380deb-3a51-4850-ad68-a003f8bd2784] succeeded in 0.008376751007745042s: None
+[2017-02-08 15:11:26,011: INFO/MainProcess] Received task: workflow_sample.run_workflow[205701ca-bd70-4e29-81ef-2716bb6d1b4c]  
+[2017-02-08 15:11:26,011: DEBUG/MainProcess] TaskPool: Apply <function _fast_trace_task at 0x7f34d426b6a8> (args:('workflow_sample.run_workflow', '205701ca-bd70-4e29-81ef-2716bb6d1b4c', {'id': '205701ca-bd70-4e29-81ef-2716bb6d1b4c', 'expires': None, 'kwargsrepr': '{}', 'argsrepr': "([{'value': 10}, {'value': 20}, {'value': 30}],)", 'lang': 'py', 'reply_to': 'cf485662-4ee0-3412-b798-69bbba40d35e', 'root_id': '205701ca-bd70-4e29-81ef-2716bb6d1b4c', 'retries': 0, 'eta': None, 'timelimit': [None, None], 'parent_id': None, 'delivery_info': {'priority': 0, 'routing_key': 'celery', 'redelivered': None, 'exchange': ''}, 'correlation_id': '205701ca-bd70-4e29-81ef-2716bb6d1b4c', 'origin': 'gen20145@goldbeef.anim.odw.com.cn', 'group': None, 'task': 'workflow_sample.run_workflow'}, b'[[[{"value": 10}, {"value": 20}, {"value": 30}]], {}, {"callbacks": null, "chain": null, "chord": null, "errbacks": null}]', 'application/json', 'utf-8') kwargs:{})
+[2017-02-08 15:11:26,012: DEBUG/MainProcess] Task accepted: workflow_sample.run_workflow[205701ca-bd70-4e29-81ef-2716bb6d1b4c] pid:20060
+[2017-02-08 15:11:26,019: WARNING/PoolWorker-1] DEBUG 2017-02-08 15:11:26,019 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([0].) callback add for obj: {'value': 10}
+[2017-02-08 15:11:26,019: WARNING/PoolWorker-1] DEBUG 2017-02-08 15:11:26,019 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([1].) callback print_res for obj: {'value': 12}
+[2017-02-08 15:11:26,020: WARNING/PoolWorker-1] 12
+[2017-02-08 15:11:26,020: WARNING/PoolWorker-1] DEBUG 2017-02-08 15:11:26,020 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([0].) callback add for obj: {'value': 20}
+[2017-02-08 15:11:26,020: WARNING/PoolWorker-1] DEBUG 2017-02-08 15:11:26,020 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([1].) callback print_res for obj: {'value': 22}
+[2017-02-08 15:11:26,020: WARNING/PoolWorker-1] 22
+[2017-02-08 15:11:26,020: WARNING/PoolWorker-1] DEBUG 2017-02-08 15:11:26,020 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([0].) callback add for obj: {'value': 30}
+[2017-02-08 15:11:26,020: WARNING/PoolWorker-1] DEBUG 2017-02-08 15:11:26,020 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([1].) callback print_res for obj: {'value': 32}
+[2017-02-08 15:11:26,020: WARNING/PoolWorker-1] 32
+[2017-02-08 15:11:26,020: INFO/PoolWorker-1] Task workflow_sample.run_workflow[205701ca-bd70-4e29-81ef-2716bb6d1b4c] succeeded in 0.00845160499738995s: None
+[2017-02-08 15:11:27,266: INFO/MainProcess] Received task: workflow_sample.run_workflow[59438c33-f4c3-4b4b-a60c-06b50446aa2e]  
+[2017-02-08 15:11:27,266: DEBUG/MainProcess] TaskPool: Apply <function _fast_trace_task at 0x7f34d426b6a8> (args:('workflow_sample.run_workflow', '59438c33-f4c3-4b4b-a60c-06b50446aa2e', {'id': '59438c33-f4c3-4b4b-a60c-06b50446aa2e', 'expires': None, 'group': None, 'argsrepr': "([{'value': 10}, {'value': 20}, {'value': 30}],)", 'lang': 'py', 'reply_to': '6b8c287c-7e31-32af-bed7-4db6af06cffc', 'root_id': '59438c33-f4c3-4b4b-a60c-06b50446aa2e', 'retries': 0, 'eta': None, 'timelimit': [None, None], 'parent_id': None, 'delivery_info': {'priority': 0, 'routing_key': 'celery', 'redelivered': None, 'exchange': ''}, 'correlation_id': '59438c33-f4c3-4b4b-a60c-06b50446aa2e', 'origin': 'gen20155@goldbeef.anim.odw.com.cn', 'kwargsrepr': '{}', 'task': 'workflow_sample.run_workflow'}, b'[[[{"value": 10}, {"value": 20}, {"value": 30}]], {}, {"callbacks": null, "chord": null, "errbacks": null, "chain": null}]', 'application/json', 'utf-8') kwargs:{})
+[2017-02-08 15:11:27,267: DEBUG/MainProcess] Task accepted: workflow_sample.run_workflow[59438c33-f4c3-4b4b-a60c-06b50446aa2e] pid:20068
+[2017-02-08 15:11:27,267: WARNING/PoolWorker-9] DEBUG 2017-02-08 15:11:27,267 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([0].) callback add for obj: {'value': 10}
+[2017-02-08 15:11:27,267: WARNING/PoolWorker-9] DEBUG 2017-02-08 15:11:27,267 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([1].) callback print_res for obj: {'value': 12}
+[2017-02-08 15:11:27,268: WARNING/PoolWorker-9] 12
+[2017-02-08 15:11:27,268: WARNING/PoolWorker-9] DEBUG 2017-02-08 15:11:27,268 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([0].) callback add for obj: {'value': 20}
+[2017-02-08 15:11:27,268: WARNING/PoolWorker-9] DEBUG 2017-02-08 15:11:27,268 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([1].) callback print_res for obj: {'value': 22}
+[2017-02-08 15:11:27,268: WARNING/PoolWorker-9] 22
+[2017-02-08 15:11:27,268: WARNING/PoolWorker-9] DEBUG 2017-02-08 15:11:27,268 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([0].) callback add for obj: {'value': 30}
+[2017-02-08 15:11:27,268: WARNING/PoolWorker-9] DEBUG 2017-02-08 15:11:27,268 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([1].) callback print_res for obj: {'value': 32}
+[2017-02-08 15:11:27,269: WARNING/PoolWorker-9] 32
+[2017-02-08 15:11:27,269: INFO/PoolWorker-9] Task workflow_sample.run_workflow[59438c33-f4c3-4b4b-a60c-06b50446aa2e] succeeded in 0.001886584999738261s: None
+[2017-02-08 15:11:28,408: INFO/MainProcess] Received task: workflow_sample.run_workflow[84ea61a9-49fe-48d3-8cd5-ec1efba2227a]  
+[2017-02-08 15:11:28,408: DEBUG/MainProcess] TaskPool: Apply <function _fast_trace_task at 0x7f34d426b6a8> (args:('workflow_sample.run_workflow', '84ea61a9-49fe-48d3-8cd5-ec1efba2227a', {'id': '84ea61a9-49fe-48d3-8cd5-ec1efba2227a', 'eta': None, 'group': None, 'argsrepr': "([{'value': 10}, {'value': 20}, {'value': 30}],)", 'lang': 'py', 'reply_to': '84582448-6ebd-351a-8efb-c20075200a38', 'root_id': '84ea61a9-49fe-48d3-8cd5-ec1efba2227a', 'retries': 0, 'expires': None, 'timelimit': [None, None], 'parent_id': None, 'delivery_info': {'priority': 0, 'routing_key': 'celery', 'redelivered': None, 'exchange': ''}, 'correlation_id': '84ea61a9-49fe-48d3-8cd5-ec1efba2227a', 'origin': 'gen20166@goldbeef.anim.odw.com.cn', 'kwargsrepr': '{}', 'task': 'workflow_sample.run_workflow'}, b'[[[{"value": 10}, {"value": 20}, {"value": 30}]], {}, {"chord": null, "errbacks": null, "callbacks": null, "chain": null}]', 'application/json', 'utf-8') kwargs:{})
+[2017-02-08 15:11:28,409: DEBUG/MainProcess] Task accepted: workflow_sample.run_workflow[84ea61a9-49fe-48d3-8cd5-ec1efba2227a] pid:20069
+[2017-02-08 15:11:28,409: WARNING/PoolWorker-10] DEBUG 2017-02-08 15:11:28,409 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([0].) callback add for obj: {'value': 10}
+[2017-02-08 15:11:28,409: WARNING/PoolWorker-10] DEBUG 2017-02-08 15:11:28,409 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([1].) callback print_res for obj: {'value': 12}
+[2017-02-08 15:11:28,409: WARNING/PoolWorker-10] 12
+[2017-02-08 15:11:28,409: WARNING/PoolWorker-10] DEBUG 2017-02-08 15:11:28,409 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([0].) callback add for obj: {'value': 20}
+[2017-02-08 15:11:28,410: WARNING/PoolWorker-10] DEBUG 2017-02-08 15:11:28,410 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([1].) callback print_res for obj: {'value': 22}
+[2017-02-08 15:11:28,410: WARNING/PoolWorker-10] 22
+[2017-02-08 15:11:28,410: WARNING/PoolWorker-10] DEBUG 2017-02-08 15:11:28,410 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([0].) callback add for obj: {'value': 30}
+[2017-02-08 15:11:28,410: WARNING/PoolWorker-10] DEBUG 2017-02-08 15:11:28,410 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([1].) callback print_res for obj: {'value': 32}
+[2017-02-08 15:11:28,410: WARNING/PoolWorker-10] 32
+[2017-02-08 15:11:28,410: INFO/PoolWorker-10] Task workflow_sample.run_workflow[84ea61a9-49fe-48d3-8cd5-ec1efba2227a] succeeded in 0.0018422770081087947s: None
+[2017-02-08 15:11:29,579: INFO/MainProcess] Received task: workflow_sample.run_workflow[d30e007d-7613-4385-b54b-2331f85c82fe]  
+[2017-02-08 15:11:29,580: DEBUG/MainProcess] TaskPool: Apply <function _fast_trace_task at 0x7f34d426b6a8> (args:('workflow_sample.run_workflow', 'd30e007d-7613-4385-b54b-2331f85c82fe', {'id': 'd30e007d-7613-4385-b54b-2331f85c82fe', 'eta': None, 'group': None, 'argsrepr': "([{'value': 10}, {'value': 20}, {'value': 30}],)", 'lang': 'py', 'reply_to': '62a8dfce-76a8-3369-8af4-f9e4eb38bd36', 'root_id': 'd30e007d-7613-4385-b54b-2331f85c82fe', 'retries': 0, 'expires': None, 'timelimit': [None, None], 'parent_id': None, 'delivery_info': {'priority': 0, 'routing_key': 'celery', 'redelivered': None, 'exchange': ''}, 'correlation_id': 'd30e007d-7613-4385-b54b-2331f85c82fe', 'origin': 'gen20176@goldbeef.anim.odw.com.cn', 'kwargsrepr': '{}', 'task': 'workflow_sample.run_workflow'}, b'[[[{"value": 10}, {"value": 20}, {"value": 30}]], {}, {"errbacks": null, "chord": null, "callbacks": null, "chain": null}]', 'application/json', 'utf-8') kwargs:{})
+[2017-02-08 15:11:29,581: DEBUG/MainProcess] Task accepted: workflow_sample.run_workflow[d30e007d-7613-4385-b54b-2331f85c82fe] pid:20067
+[2017-02-08 15:11:29,581: WARNING/PoolWorker-8] DEBUG 2017-02-08 15:11:29,581 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([0].) callback add for obj: {'value': 10}
+[2017-02-08 15:11:29,581: WARNING/PoolWorker-8] DEBUG 2017-02-08 15:11:29,581 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([1].) callback print_res for obj: {'value': 12}
+[2017-02-08 15:11:29,581: WARNING/PoolWorker-8] 12
+[2017-02-08 15:11:29,581: WARNING/PoolWorker-8] DEBUG 2017-02-08 15:11:29,581 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([0].) callback add for obj: {'value': 20}
+[2017-02-08 15:11:29,581: WARNING/PoolWorker-8] DEBUG 2017-02-08 15:11:29,581 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([1].) callback print_res for obj: {'value': 22}
+[2017-02-08 15:11:29,581: WARNING/PoolWorker-8] 22
+[2017-02-08 15:11:29,582: WARNING/PoolWorker-8] DEBUG 2017-02-08 15:11:29,582 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([0].) callback add for obj: {'value': 30}
+[2017-02-08 15:11:29,582: WARNING/PoolWorker-8] DEBUG 2017-02-08 15:11:29,582 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([1].) callback print_res for obj: {'value': 32}
+[2017-02-08 15:11:29,582: WARNING/PoolWorker-8] 32
+[2017-02-08 15:11:29,582: INFO/PoolWorker-8] Task workflow_sample.run_workflow[d30e007d-7613-4385-b54b-2331f85c82fe] succeeded in 0.0016839689924381673s: None
+[2017-02-08 15:11:30,699: INFO/MainProcess] Received task: workflow_sample.run_workflow[3faab6c9-dab8-423f-8c6d-ece0daee80b3]  
+[2017-02-08 15:11:30,699: DEBUG/MainProcess] TaskPool: Apply <function _fast_trace_task at 0x7f34d426b6a8> (args:('workflow_sample.run_workflow', '3faab6c9-dab8-423f-8c6d-ece0daee80b3', {'id': '3faab6c9-dab8-423f-8c6d-ece0daee80b3', 'eta': None, 'kwargsrepr': '{}', 'argsrepr': "([{'value': 10}, {'value': 20}, {'value': 30}],)", 'timelimit': [None, None], 'reply_to': '5cfeae2b-f616-30d0-b29a-a72318861314', 'root_id': '3faab6c9-dab8-423f-8c6d-ece0daee80b3', 'retries': 0, 'expires': None, 'lang': 'py', 'parent_id': None, 'delivery_info': {'priority': 0, 'routing_key': 'celery', 'redelivered': None, 'exchange': ''}, 'correlation_id': '3faab6c9-dab8-423f-8c6d-ece0daee80b3', 'origin': 'gen20188@goldbeef.anim.odw.com.cn', 'group': None, 'task': 'workflow_sample.run_workflow'}, b'[[[{"value": 10}, {"value": 20}, {"value": 30}]], {}, {"callbacks": null, "errbacks": null, "chord": null, "chain": null}]', 'application/json', 'utf-8') kwargs:{})
+[2017-02-08 15:11:30,700: DEBUG/MainProcess] Task accepted: workflow_sample.run_workflow[3faab6c9-dab8-423f-8c6d-ece0daee80b3] pid:20065
+[2017-02-08 15:11:30,700: WARNING/PoolWorker-6] DEBUG 2017-02-08 15:11:30,700 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([0].) callback add for obj: {'value': 10}
+[2017-02-08 15:11:30,701: WARNING/PoolWorker-6] DEBUG 2017-02-08 15:11:30,701 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([1].) callback print_res for obj: {'value': 12}
+[2017-02-08 15:11:30,701: WARNING/PoolWorker-6] 12
+[2017-02-08 15:11:30,701: WARNING/PoolWorker-6] DEBUG 2017-02-08 15:11:30,701 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([0].) callback add for obj: {'value': 20}
+[2017-02-08 15:11:30,701: WARNING/PoolWorker-6] DEBUG 2017-02-08 15:11:30,701 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([1].) callback print_res for obj: {'value': 22}
+[2017-02-08 15:11:30,701: WARNING/PoolWorker-6] 22
+[2017-02-08 15:11:30,701: WARNING/PoolWorker-6] DEBUG 2017-02-08 15:11:30,701 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([0].) callback add for obj: {'value': 30}
+[2017-02-08 15:11:30,702: WARNING/PoolWorker-6] DEBUG 2017-02-08 15:11:30,702 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([1].) callback print_res for obj: {'value': 32}
+[2017-02-08 15:11:30,702: WARNING/PoolWorker-6] 32
+[2017-02-08 15:11:30,702: INFO/PoolWorker-6] Task workflow_sample.run_workflow[3faab6c9-dab8-423f-8c6d-ece0daee80b3] succeeded in 0.001850411994382739s: None
+[2017-02-08 15:11:31,832: INFO/MainProcess] Received task: workflow_sample.run_workflow[e790b947-1b05-4a5c-9c12-b76808d90099]  
+[2017-02-08 15:11:31,833: DEBUG/MainProcess] TaskPool: Apply <function _fast_trace_task at 0x7f34d426b6a8> (args:('workflow_sample.run_workflow', 'e790b947-1b05-4a5c-9c12-b76808d90099', {'id': 'e790b947-1b05-4a5c-9c12-b76808d90099', 'eta': None, 'group': None, 'argsrepr': "([{'value': 10}, {'value': 20}, {'value': 30}],)", 'lang': 'py', 'reply_to': '9e714d2f-a115-38c9-a152-6757492ac4a2', 'root_id': 'e790b947-1b05-4a5c-9c12-b76808d90099', 'retries': 0, 'expires': None, 'timelimit': [None, None], 'parent_id': None, 'delivery_info': {'priority': 0, 'routing_key': 'celery', 'redelivered': None, 'exchange': ''}, 'correlation_id': 'e790b947-1b05-4a5c-9c12-b76808d90099', 'origin': 'gen20198@goldbeef.anim.odw.com.cn', 'kwargsrepr': '{}', 'task': 'workflow_sample.run_workflow'}, b'[[[{"value": 10}, {"value": 20}, {"value": 30}]], {}, {"callbacks": null, "chain": null, "chord": null, "errbacks": null}]', 'application/json', 'utf-8') kwargs:{})
+[2017-02-08 15:11:31,833: DEBUG/MainProcess] Task accepted: workflow_sample.run_workflow[e790b947-1b05-4a5c-9c12-b76808d90099] pid:20064
+[2017-02-08 15:11:31,834: WARNING/PoolWorker-5] DEBUG 2017-02-08 15:11:31,833 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([0].) callback add for obj: {'value': 10}
+[2017-02-08 15:11:31,834: WARNING/PoolWorker-5] DEBUG 2017-02-08 15:11:31,834 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([1].) callback print_res for obj: {'value': 12}
+[2017-02-08 15:11:31,834: WARNING/PoolWorker-5] 12
+[2017-02-08 15:11:31,834: WARNING/PoolWorker-5] DEBUG 2017-02-08 15:11:31,834 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([0].) callback add for obj: {'value': 20}
+[2017-02-08 15:11:31,834: WARNING/PoolWorker-5] DEBUG 2017-02-08 15:11:31,834 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([1].) callback print_res for obj: {'value': 22}
+[2017-02-08 15:11:31,834: WARNING/PoolWorker-5] 22
+[2017-02-08 15:11:31,835: WARNING/PoolWorker-5] DEBUG 2017-02-08 15:11:31,835 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([0].) callback add for obj: {'value': 30}
+[2017-02-08 15:11:31,835: WARNING/PoolWorker-5] DEBUG 2017-02-08 15:11:31,835 workflow.<class 'workflow.engine.GenericWorkflowEngine'>:476    Running ([1].) callback print_res for obj: {'value': 32}
+[2017-02-08 15:11:31,835: WARNING/PoolWorker-5] 32
+[2017-02-08 15:11:31,835: INFO/PoolWorker-5] Task workflow_sample.run_workflow[e790b947-1b05-4a5c-9c12-b76808d90099] succeeded in 0.0018785610009217635s: None
+^C
+worker: Hitting Ctrl+C again will terminate all running tasks!
+
+worker: Warm shutdown (MainProcess)
+[2017-02-08 15:11:59,609: DEBUG/MainProcess] | Worker: Closing Hub...
+[2017-02-08 15:11:59,610: DEBUG/MainProcess] | Worker: Closing Pool...
+[2017-02-08 15:11:59,610: DEBUG/MainProcess] | Worker: Closing Consumer...
+[2017-02-08 15:11:59,610: DEBUG/MainProcess] | Worker: Stopping Consumer...
+[2017-02-08 15:11:59,611: DEBUG/MainProcess] | Consumer: Closing Connection...
+[2017-02-08 15:11:59,611: DEBUG/MainProcess] | Consumer: Closing Events...
+[2017-02-08 15:11:59,611: DEBUG/MainProcess] | Consumer: Closing Mingle...
+[2017-02-08 15:11:59,611: DEBUG/MainProcess] | Consumer: Closing Tasks...
+[2017-02-08 15:11:59,611: DEBUG/MainProcess] | Consumer: Closing Control...
+[2017-02-08 15:11:59,612: DEBUG/MainProcess] | Consumer: Closing Gossip...
+[2017-02-08 15:11:59,612: DEBUG/MainProcess] | Consumer: Closing Heart...
+[2017-02-08 15:11:59,612: DEBUG/MainProcess] | Consumer: Closing event loop...
+[2017-02-08 15:11:59,612: DEBUG/MainProcess] | Consumer: Stopping event loop...
+[2017-02-08 15:11:59,612: DEBUG/MainProcess] | Consumer: Stopping Heart...
+[2017-02-08 15:11:59,614: DEBUG/MainProcess] | Consumer: Stopping Gossip...
+[2017-02-08 15:11:59,615: DEBUG/MainProcess] | Consumer: Stopping Control...
+[2017-02-08 15:11:59,617: DEBUG/MainProcess] | Consumer: Stopping Tasks...
+[2017-02-08 15:11:59,618: DEBUG/MainProcess] Canceling task consumer...
+[2017-02-08 15:11:59,618: DEBUG/MainProcess] | Consumer: Stopping Mingle...
+[2017-02-08 15:11:59,618: DEBUG/MainProcess] | Consumer: Stopping Events...
+[2017-02-08 15:11:59,618: DEBUG/MainProcess] | Consumer: Stopping Connection...
+[2017-02-08 15:11:59,619: DEBUG/MainProcess] | Worker: Stopping Pool...
+[2017-02-08 15:12:00,626: DEBUG/MainProcess] | Worker: Stopping Hub...
+[2017-02-08 15:12:00,626: DEBUG/MainProcess] | Consumer: Shutdown Heart...
+[2017-02-08 15:12:00,626: DEBUG/MainProcess] | Consumer: Shutdown Gossip...
+[2017-02-08 15:12:00,627: DEBUG/MainProcess] | Consumer: Shutdown Control...
+[2017-02-08 15:12:00,627: DEBUG/MainProcess] | Consumer: Shutdown Tasks...
+[2017-02-08 15:12:00,627: DEBUG/MainProcess] Canceling task consumer...
+[2017-02-08 15:12:00,627: DEBUG/MainProcess] Closing consumer channel...
+[2017-02-08 15:12:00,627: DEBUG/MainProcess] | Consumer: Shutdown Events...
+[2017-02-08 15:12:00,628: DEBUG/MainProcess] | Consumer: Shutdown Connection...
+[2017-02-08 15:12:00,628: DEBUG/MainProcess] removing tasks from inqueue until task handler finished
