@@ -32,3 +32,7 @@ Running the server::
 Running the client::
 
   ./redis-cli 
+
+Python and Redis -> Celery::
+
+  http://www.celeryproject.org/
