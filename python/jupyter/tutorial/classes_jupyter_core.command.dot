@@ -1,0 +1,5 @@
+digraph "classes_jupyter_core.command" {
+charset="utf-8"
+rankdir=BT
+"0" [label="{JupyterParser|epilog\l|}", shape="record"];
+}
