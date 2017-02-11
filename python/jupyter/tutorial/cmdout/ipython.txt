@@ -1,0 +1,25 @@
+$ ipython --debug
+
+[TerminalIPythonApp] IPYTHONDIR set to: C:\Users\satish goda\.ipython
+[TerminalIPythonApp] Using existing profile dir: 'C:\\Users\\satish goda\\.ipython\\profile_default'
+[TerminalIPythonApp] Searching path ['F:\\src\\GitHub', 'C:\\Users\\satish goda\\.ipython\\profile_default', 'C:\\ProgramData\\ipython'] for config files
+[TerminalIPythonApp] Attempting to load config file: ipython_config.py
+[TerminalIPythonApp] Looking for ipython_config in C:\ProgramData\ipython
+[TerminalIPythonApp] Looking for ipython_config in C:\Users\satish goda\.ipython\profile_default
+[TerminalIPythonApp] Looking for ipython_config in F:\src\GitHub
+Python 3.5.1 |Continuum Analytics, Inc.| (default, Feb 16 2016, 09:49:46) [MSC v.1900 64 bit (AMD64)]
+Type "copyright", "credits" or "license" for more information.
+
+IPython 5.1.0 -- An enhanced Interactive Python.
+?         -> Introduction and overview of IPython's features.
+%quickref -> Quick reference.
+help      -> Python's own help system.
+object?   -> Details about 'object', use 'object??' for extra details.
+
+[TerminalIPythonApp] Loading IPython extensions...
+[TerminalIPythonApp] Loading IPython extension: storemagic
+[TerminalIPythonApp] Starting IPython's mainloop...
+
+In [1]:^D
+Do you really want to exit ([y]/n)? y
+

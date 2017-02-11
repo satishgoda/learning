@@ -1,0 +1,50 @@
+jupyter console --kernel julia --debug
+
+[ZMQTerminalIPythonApp] Searching ['C:\\Users\\satish goda', 'C:\\Users\\satish goda\\.jupyter', 'e:\\Miniconda3\\etc\\jupyter', 'C:\\ProgramData\\jupyter'] for config fi
+les
+[ZMQTerminalIPythonApp] Looking for jupyter_config in C:\ProgramData\jupyter
+[ZMQTerminalIPythonApp] Looking for jupyter_config in e:\Miniconda3\etc\jupyter
+[ZMQTerminalIPythonApp] Looking for jupyter_config in C:\Users\satish goda\.jupyter
+[ZMQTerminalIPythonApp] Looking for jupyter_config in C:\Users\satish goda
+[ZMQTerminalIPythonApp] Looking for jupyter_console_config in C:\ProgramData\jupyter
+[ZMQTerminalIPythonApp] Looking for jupyter_console_config in e:\Miniconda3\etc\jupyter
+[ZMQTerminalIPythonApp] Looking for jupyter_console_config in C:\Users\satish goda\.jupyter
+[ZMQTerminalIPythonApp] Looking for jupyter_console_config in C:\Users\satish goda
+[ZMQTerminalIPythonApp] Connection File not found: C:\Users\satish goda\AppData\Roaming\jupyter\runtime\kernel-9780.json
+[ZMQTerminalIPythonApp] Native kernel (python3) available from e:\Miniconda3\lib\site-packages\ipykernel\resources
+Traceback (most recent call last):
+  File "e:\Miniconda3\lib\site-packages\jupyter_client\kernelspec.py", line 173, in get_kernel_spec
+    resource_dir = d[kernel_name.lower()]
+KeyError: 'julia'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "e:\Miniconda3\Scripts\jupyter-console-script.py", line 4, in <module>
+    app.main()
+  File "e:\Miniconda3\lib\site-packages\jupyter_core\application.py", line 267, in launch_instance
+    return super(JupyterApp, cls).launch_instance(argv=argv, **kwargs)
+  File "e:\Miniconda3\lib\site-packages\traitlets\config\application.py", line 657, in launch_instance
+    app.initialize(argv)
+  File "<decorator-gen-114>", line 2, in initialize
+  File "e:\Miniconda3\lib\site-packages\traitlets\config\application.py", line 87, in catch_config_error
+    return method(app, *args, **kwargs)
+  File "e:\Miniconda3\lib\site-packages\jupyter_console\app.py", line 137, in initialize
+    self.init_shell()
+  File "e:\Miniconda3\lib\site-packages\jupyter_console\app.py", line 105, in init_shell
+    JupyterConsoleApp.initialize(self)
+  File "e:\Miniconda3\lib\site-packages\jupyter_client\consoleapp.py", line 334, in initialize
+    self.init_kernel_manager()
+  File "e:\Miniconda3\lib\site-packages\jupyter_client\consoleapp.py", line 288, in init_kernel_manager
+    self.kernel_manager.start_kernel(**kwargs)
+  File "e:\Miniconda3\lib\site-packages\jupyter_client\manager.py", line 230, in start_kernel
+    kernel_cmd = self.format_kernel_cmd(extra_arguments=extra_arguments)
+  File "e:\Miniconda3\lib\site-packages\jupyter_client\manager.py", line 170, in format_kernel_cmd
+    cmd = self.kernel_spec.argv + extra_arguments
+  File "e:\Miniconda3\lib\site-packages\jupyter_client\manager.py", line 82, in kernel_spec
+    self._kernel_spec = self.kernel_spec_manager.get_kernel_spec(self.kernel_name)
+  File "e:\Miniconda3\lib\site-packages\jupyter_client\kernelspec.py", line 175, in get_kernel_spec
+    raise NoSuchKernel(kernel_name)
+jupyter_client.kernelspec.NoSuchKernel: No such kernel named julia
+
+C:\Users\satish goda>

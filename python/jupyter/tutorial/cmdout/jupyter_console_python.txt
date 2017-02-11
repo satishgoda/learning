@@ -1,0 +1,40 @@
+C:\Users\satish goda>jupyter console --kernel python --debug
+[ZMQTerminalIPythonApp] Searching ['C:\\Users\\satish goda', 'C:\\Users\\satish goda\\.jupyter', 'e:\\Miniconda3\\etc\\jupyter', 'C:\\ProgramData\\jupyter'] for config fi
+les
+[ZMQTerminalIPythonApp] Looking for jupyter_config in C:\ProgramData\jupyter
+[ZMQTerminalIPythonApp] Looking for jupyter_config in e:\Miniconda3\etc\jupyter
+[ZMQTerminalIPythonApp] Looking for jupyter_config in C:\Users\satish goda\.jupyter
+[ZMQTerminalIPythonApp] Looking for jupyter_config in C:\Users\satish goda
+[ZMQTerminalIPythonApp] Looking for jupyter_console_config in C:\ProgramData\jupyter
+[ZMQTerminalIPythonApp] Looking for jupyter_console_config in e:\Miniconda3\etc\jupyter
+[ZMQTerminalIPythonApp] Looking for jupyter_console_config in C:\Users\satish goda\.jupyter
+[ZMQTerminalIPythonApp] Looking for jupyter_console_config in C:\Users\satish goda
+[ZMQTerminalIPythonApp] Connection File not found: C:\Users\satish goda\AppData\Roaming\jupyter\runtime\kernel-8844.json
+[ZMQTerminalIPythonApp] Native kernel (python3) available from e:\Miniconda3\lib\site-packages\ipykernel\resources
+[ZMQTerminalIPythonApp] Starting kernel: ['e:\\Miniconda3\\python.exe', '-m', 'ipykernel', '-f', 'C:\\Users\\satish goda\\AppData\\Roaming\\jupyter\\runtime\\kernel-8844.
+json']
+[ZMQTerminalIPythonApp] Connecting to: tcp://127.0.0.1:54478
+[ZMQTerminalIPythonApp] connecting shell channel to tcp://127.0.0.1:54475
+[ZMQTerminalIPythonApp] Connecting to: tcp://127.0.0.1:54475
+[ZMQTerminalIPythonApp] connecting iopub channel to tcp://127.0.0.1:54476
+[ZMQTerminalIPythonApp] Connecting to: tcp://127.0.0.1:54476
+[ZMQTerminalIPythonApp] connecting stdin channel to tcp://127.0.0.1:54477
+[ZMQTerminalIPythonApp] Connecting to: tcp://127.0.0.1:54477
+[ZMQTerminalIPythonApp] connecting heartbeat channel to tcp://127.0.0.1:54479
+Jupyter console 5.0.0
+
+Python 3.5.1 |Continuum Analytics, Inc.| (default, Feb 16 2016, 09:49:46) [MSC v.1900 64 bit (AMD64)]
+Type "copyright", "credits" or "license" for more information.
+
+IPython 5.1.0 -- An enhanced Interactive Python.
+?         -> Introduction and overview of IPython's features.
+%quickref -> Quick reference.
+help      -> Python's own help system.
+object?   -> Details about 'object', use 'object??' for extra details.
+
+
+[ZMQTerminalIPythonApp] Starting the jupyter console mainloop...
+
+In [1]:
+Do you really want to exit ([y]/n)? y
+Shutting down kernel

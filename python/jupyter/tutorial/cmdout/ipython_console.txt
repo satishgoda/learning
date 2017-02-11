@@ -1,0 +1,63 @@
+$ ipython console --debug
+
+[TerminalIPythonApp] WARNING | Subcommand `ipython console` is deprecated and will be removed in future versions.
+[TerminalIPythonApp] WARNING | You likely want to use `jupyter console` in the future
+[ZMQTerminalIPythonApp] Searching ['F:\\src\\GitHub', 'C:\\Users\\satish goda\\.jupyter', 'E:\\Miniconda3\\etc\\jupyter', 'C:\\ProgramData\\jupyter'] for config files
+[ZMQTerminalIPythonApp] Looking for jupyter_config in C:\ProgramData\jupyter
+[ZMQTerminalIPythonApp] Looking for jupyter_config in E:\Miniconda3\etc\jupyter
+[ZMQTerminalIPythonApp] Looking for jupyter_config in C:\Users\satish goda\.jupyter
+[ZMQTerminalIPythonApp] Looking for jupyter_config in F:\src\GitHub
+[ZMQTerminalIPythonApp] Looking for jupyter_console_config in C:\ProgramData\jupyter
+[ZMQTerminalIPythonApp] Looking for jupyter_console_config in E:\Miniconda3\etc\jupyter
+[ZMQTerminalIPythonApp] Looking for jupyter_console_config in C:\Users\satish goda\.jupyter
+[ZMQTerminalIPythonApp] Looking for jupyter_console_config in F:\src\GitHub
+[ZMQTerminalIPythonApp] Connection File not found: C:\Users\satish goda\AppData\Roaming\jupyter\runtime\kernel-9472.json
+[ZMQTerminalIPythonApp] Native kernel (python3) available from E:\Miniconda3\lib\site-packages\ipykernel\resources
+[ZMQTerminalIPythonApp] Starting kernel: ['E:\\Miniconda3\\python.exe', '-m', 'ipykernel', '-f', 'C:\\Users\\satish goda\\AppData\\Roaming\\jupyter\\runtime\\kernel-9472.json']
+[ZMQTerminalIPythonApp] Connecting to: tcp://127.0.0.1:52776
+[ZMQTerminalIPythonApp] connecting shell channel to tcp://127.0.0.1:52773
+[ZMQTerminalIPythonApp] Connecting to: tcp://127.0.0.1:52773
+[ZMQTerminalIPythonApp] connecting iopub channel to tcp://127.0.0.1:52774
+[ZMQTerminalIPythonApp] Connecting to: tcp://127.0.0.1:52774
+[ZMQTerminalIPythonApp] connecting stdin channel to tcp://127.0.0.1:52775
+[ZMQTerminalIPythonApp] Connecting to: tcp://127.0.0.1:52775
+[ZMQTerminalIPythonApp] connecting heartbeat channel to tcp://127.0.0.1:52777
+Jupyter console 5.0.0
+
+Python 3.5.1 |Continuum Analytics, Inc.| (default, Feb 16 2016, 09:49:46) [MSC v.1900 64 bit (AMD64)]
+Type "copyright", "credits" or "license" for more information.
+
+IPython 5.1.0 -- An enhanced Interactive Python.
+?         -> Introduction and overview of IPython's features.
+%quickref -> Quick reference.
+help      -> Python's own help system.
+object?   -> Details about 'object', use 'object??' for extra details.
+
+
+[ZMQTerminalIPythonApp] Starting the jupyter console mainloop...
+
+In [1]: %connect_info
+{
+  "iopub_port": 52774,
+  "stdin_port": 52775,
+  "key": "1b228ee6-f2a6-4740-9d05-20fadc4165c8",
+  "kernel_name": "",
+  "ip": "127.0.0.1",
+  "transport": "tcp",
+  "shell_port": 52773,
+  "control_port": 52776,
+  "hb_port": 52777,
+  "signature_scheme": "hmac-sha256"
+}
+
+Paste the above JSON into a file, and connect with:
+    $> jupyter <app> --existing <file>
+or, if you are local, you can connect with just:
+    $> jupyter <app> --existing kernel-9472.json
+or even just:
+    $> jupyter <app> --existing
+if this is the most recent Jupyter kernel you have started.
+
+In [1]: ^D
+Do you really want to exit ([y]/n)? y
+Shutting down kernel
