@@ -1,0 +1,3 @@
+$('.account').attr({
+  "class": 'active'
+});
