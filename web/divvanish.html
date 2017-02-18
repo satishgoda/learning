@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+
+$(document).ready(
+    function() {
+	$("p.vanish").click(
+	    function() {
+		$(this).hide();
+		console.log("Hidden ", this);
+	    }
+	);
+	$("p.novanish#jqp2").click(
+	    function() {
+	    	var msg = "I cannot be hidden";
+		console.log(msg, this)
+		window.alert("I cannot be hidden!", this);
+	    }
+	);	
+    }
+);
+</script></head>
+<body>
+<p class='vanish' id='jqp1'>If you click on me, I will disappear.</p>
+<p class='novanish' id='jqp2'>You cannot Click me away!</p>
+<p class='vanish' id='jqp3'>Click me too!</p>
+</body>
+</html>
