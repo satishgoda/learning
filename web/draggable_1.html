@@ -1,60 +1,62 @@
-
 <!DOCTYPE HTML>
 <html>
+
 <head>
-<style>
-#div1 {
-    width: 350px;
-    height: 150px;
-    padding: 10px;
-    border: 1px solid #aaaaaa;
-}
+    <style>
+        #div1 {
+            width: 350px;
+            height: 150px;
+            padding: 10px;
+            border: 1px solid #aaaaaa;
+        }
+        
+        #div2 {
+            width: 350px;
+            height: 150px;
+            padding: 10px;
+            border: 1px solid #aaaaaa;
+        }
+    </style>
+    <script>
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
 
-#div2 {
-    width: 350px;
-    height: 150px;
-    padding: 10px;
-    border: 1px solid #aaaaaa;
-}
-</style>
-<script>
-function allowDrop(ev) {
-    ev.preventDefault();
-}
+        function drag(ev) {
+            console.log(ev.target, ev.target.id)
+            ev.dataTransfer.setData("Text", ev.target.id);
+        }
 
-function drag(ev) {
-    ev.dataTransfer.setData("Text", ev.target.id);
-}
-
-function drop(ev) {
-    var data = ev.dataTransfer.getData("Text");
-    ev.target.appendChild(document.getElementById(data));
-    ev.preventDefault();
-}
-</script>
+        function drop(ev) {
+            console.log(ev.target, ev.target.id)
+            var data = ev.dataTransfer.getData("Text");
+            ev.target.appendChild(document.getElementById(data));
+            ev.preventDefault();
+        }
+    </script>
 </head>
+
 <body>
 
-<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
-<p>Box #1</p>
-</div>
+    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <b>Box #1</b>
+    </div>
 
-<br>
+    <br>
 
-<p id="drag1" draggable="true" ondragstart="drag(event)">
-This is a draggable paragraph #1. 
-Drag this element into any of the two rectangles.
-</p>
+    <p id="drag1" draggable="true" ondragstart="drag(event)">
+        This is a draggable paragraph #1. Drag this element into any of the two rectangles.
+    </p>
 
-<p id="drag2" draggable="true" ondragstart="drag(event)">
-This is a draggable paragraph #2. 
-Drag this element into any of the two rectangles.</p>
+    <p id="drag2" draggable="true" ondragstart="drag(event)">
+        This is a draggable paragraph #2. Drag this element into any of the two rectangles.</p>
 
-<br/>
+    <br/>
 
-<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)">
-<p>Box #2</p>
-</div>
+    <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <b>Box #2</b>
+    </div>
 
 </body>
+
 </html>
