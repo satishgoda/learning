@@ -6,7 +6,6 @@ import ipywidgets as widgets
 """
 Forms related to the Drum Shop
 """
-
 drumSizeTags = ('small', 'medium', 'large')
 drumSizeValues = ('20', '40', '60')
 
