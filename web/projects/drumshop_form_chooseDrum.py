@@ -1,17 +1,23 @@
 
 def chooseDrum(size, color):
+    sizeTag = drumSizeTags[size]
+    sizeValue = drumSizeValues[size]
+    
     html = HTML(f"""
     <div style="color:#0000FF; 
                 background-color:{color}; 
-                height:{size}px; 
+                height:{sizeValue}px; 
                 width: 50px;"
     ></div>
     <hr/>
-    <p>You choose a drum of height "{size}" and color "{color}"</p>
+    <p>You choose a "{sizeTag}" size drum of height "{sizeValue}" and color "{color}"</p>
     """)
     return html
 
-drumSizes = {'small': 10, 'medium': 20, 'large': 40}
+drumSizeTags = ('small', 'medium', 'large')
+drumSizeValues = ('10', '20', '40')
+
+drumSizes = dict(zip(drumSizeTags, range(len(drumSizeTags))))
 drumColors = ['red', 'green', 'blue', 'yellow', 'grey']
 
-# interact(chooseDrum, size=drumSizes, color=drumColors)
+#interact(chooseDrum, size=drumSizes, color=drumColors)
