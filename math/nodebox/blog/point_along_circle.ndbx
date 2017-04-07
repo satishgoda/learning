@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="d28034fd-84b0-4085-ae2e-ab3ec4ce23df">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="combine1">
+        <node name="angle" position="7.00,-2.00" prototype="math.number">
+            <port name="value" type="float" value="29.0"/>
+        </node>
+        <node name="combine1" position="9.00,11.00" prototype="list.combine"/>
+        <node name="coordinates1" position="14.00,3.00" prototype="math.coordinates">
+            <port name="angle" type="float" value="45.0"/>
+        </node>
+        <node name="cosT" position="1.00,5.00" prototype="math.cos">
+            <port name="value" type="float" value="45.0"/>
+        </node>
+        <node name="frame1" position="7.00,-3.00" prototype="core.frame"/>
+        <node position="4.00,10.00" prototype="corevector.make_point"/>
+        <node name="multiply1" position="1.00,8.00" prototype="math.multiply"/>
+        <node name="multiply2" position="7.00,8.00" prototype="math.multiply"/>
+        <node name="pos_x" position="1.00,7.00" prototype="math.add"/>
+        <node name="pos_y" position="7.00,7.00" prototype="math.add"/>
+        <node position="4.00,0.00" prototype="math.radians"/>
+        <node name="radius" position="4.00,3.00" prototype="math.number">
+            <port name="value" type="float" value="100.0"/>
+        </node>
+        <node name="radius_cosT" position="1.00,6.00" prototype="math.multiply"/>
+        <node name="radius_sinT" position="7.00,6.00" prototype="math.multiply"/>
+        <node name="reverse" position="14.00,2.00" prototype="math.multiply">
+            <port name="value2" type="float" value="-1.0"/>
+        </node>
+        <node name="sinT" position="7.00,5.00" prototype="math.sin">
+            <port name="value" type="float" value="45.0"/>
+        </node>
+        <conn input="radians.degrees" output="angle"/>
+        <conn input="cosT.value" output="radians"/>
+        <conn input="sinT.value" output="radians"/>
+        <conn input="radius_cosT.value2" output="radius"/>
+        <conn input="radius_cosT.value1" output="cosT"/>
+        <conn input="radius_sinT.value1" output="radius"/>
+        <conn input="radius_sinT.value2" output="sinT"/>
+        <conn input="multiply1.value1" output="pos_x"/>
+        <conn input="make_point.x" output="multiply1"/>
+        <conn input="make_point.y" output="multiply2"/>
+        <conn input="multiply2.value1" output="pos_y"/>
+        <conn input="angle.value" output="frame1"/>
+        <conn input="pos_x.value1" output="radius_cosT"/>
+        <conn input="pos_y.value1" output="radius_sinT"/>
+        <conn input="reverse.value1" output="angle"/>
+        <conn input="coordinates1.angle" output="reverse"/>
+        <conn input="combine1.list1" output="make_point"/>
+        <conn input="combine1.list2" output="coordinates1"/>
+    </node>
+</ndbx>
