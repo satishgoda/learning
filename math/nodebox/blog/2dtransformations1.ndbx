@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="568bef3e-d66c-4aee-8e7a-e91e2267813e">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="combine5">
+        <node comment="x * sx * sinT + y * sy * cosT" position="35.00,-4.00" prototype="math.add"/>
+        <node comment="x * sy * sinT + y * sy * cosT" name="add1" position="45.00,1.00" prototype="math.add"/>
+        <node name="angle" position="35.00,-16.00" prototype="math.number">
+            <port name="value" type="float" value="41.0"/>
+        </node>
+        <node name="combine1" position="32.00,8.00" prototype="list.combine"/>
+        <node name="combine2" position="21.00,-6.00" prototype="list.combine"/>
+        <node name="combine3" position="15.00,6.00" prototype="list.combine"/>
+        <node name="combine4" position="23.00,7.00" prototype="list.combine"/>
+        <node name="combine5" position="42.00,7.00" prototype="list.combine"/>
+        <node position="34.00,-14.00" prototype="math.cos"/>
+        <node name="ellipse2" position="33.00,7.00" prototype="corevector.ellipse">
+            <port name="width" type="float" value="5.0"/>
+            <port name="height" type="float" value="5.0"/>
+        </node>
+        <node name="ellipse3" position="16.00,5.00" prototype="corevector.ellipse">
+            <port name="width" type="float" value="5.0"/>
+            <port name="height" type="float" value="5.0"/>
+        </node>
+        <node name="ellipse4" position="24.00,6.00" prototype="corevector.ellipse">
+            <port name="width" type="float" value="5.0"/>
+            <port name="height" type="float" value="5.0"/>
+        </node>
+        <node name="ellipse5" position="43.00,6.00" prototype="corevector.ellipse">
+            <port name="width" type="float" value="5.0"/>
+            <port name="height" type="float" value="5.0"/>
+        </node>
+        <node name="frame1" position="35.00,-20.00" prototype="core.frame"/>
+        <node name="make_point1" position="16.00,-16.00" prototype="corevector.make_point">
+            <port name="x" type="float" value="150.0"/>
+        </node>
+        <node name="make_point2" position="33.00,6.00" prototype="corevector.make_point"/>
+        <node name="make_point3" position="24.00,5.00" prototype="corevector.make_point"/>
+        <node name="make_point4" position="43.00,5.00" prototype="corevector.make_point"/>
+        <node name="radians_angle" position="35.00,-15.00" prototype="math.radians"/>
+        <node position="37.00,-14.00" prototype="math.sin"/>
+        <node comment="x * sx * cosT - y * sy * sinT" position="28.00,-4.00" prototype="math.subtract"/>
+        <node name="subtract1" position="35.00,-19.00" prototype="math.subtract">
+            <port name="value2" type="float" value="1.0"/>
+        </node>
+        <node comment="x * sx * cosT - y * sx * sinT" name="subtract2" position="39.00,1.00" prototype="math.subtract"/>
+        <node name="sx" position="28.00,-15.00" prototype="math.number">
+            <port max="3.0" min="-3.0" name="value" type="float" value="2.0"/>
+        </node>
+        <node name="sy" position="29.00,-14.00" prototype="math.number">
+            <port max="3.0" min="-3.0" name="value" type="float" value="1.0"/>
+        </node>
+        <node name="x" position="17.00,-15.00" prototype="data.lookup"/>
+        <node name="x_axis" position="19.00,-7.00" prototype="corevector.textpath">
+            <port name="text" type="string" value="x"/>
+            <port name="font_size" type="float" value="16.0"/>
+            <port name="position" type="point" value="300.00,-2.00"/>
+        </node>
+        <node name="x_sx" position="30.00,-8.00" prototype="math.multiply"/>
+        <node name="x_sx_cosT" position="27.00,-5.00" prototype="math.multiply"/>
+        <node name="x_sx_sinT" position="33.00,-5.00" prototype="math.multiply"/>
+        <node name="x_sy" position="44.00,-3.00" prototype="math.multiply"/>
+        <node name="x_sy_sinT" position="44.00,0.00" prototype="math.multiply"/>
+        <node name="y" position="18.00,-14.00" prototype="data.lookup">
+            <port name="key" type="string" value="y"/>
+        </node>
+        <node name="y_axis" position="22.00,-7.00" prototype="corevector.textpath">
+            <port name="text" type="string" value="y"/>
+            <port name="font_size" type="float" value="16.0"/>
+            <port name="position" type="point" value="8.00,300.00"/>
+        </node>
+        <node name="y_sx" position="40.00,-3.00" prototype="math.multiply"/>
+        <node name="y_sx_sinT" position="40.00,0.00" prototype="math.multiply"/>
+        <node name="y_sy" position="34.00,-8.00" prototype="math.multiply"/>
+        <node name="y_sy_cosT" position="36.00,-5.00" prototype="math.multiply"/>
+        <node name="y_sy_sinT" position="30.00,-5.00" prototype="math.multiply"/>
+        <conn input="x.list" output="make_point1"/>
+        <conn input="y.list" output="make_point1"/>
+        <conn input="ellipse2.position" output="make_point2"/>
+        <conn input="x_sx_cosT.value2" output="cos"/>
+        <conn input="x_sx_cosT.value1" output="x_sx"/>
+        <conn input="combine2.list1" output="x_axis"/>
+        <conn input="combine2.list2" output="y_axis"/>
+        <conn input="combine3.list1" output="combine2"/>
+        <conn input="combine3.list2" output="ellipse3"/>
+        <conn input="ellipse3.position" output="make_point1"/>
+        <conn input="combine1.list1" output="combine2"/>
+        <conn input="combine1.list2" output="ellipse2"/>
+        <conn input="make_point2.x" output="subtract"/>
+        <conn input="subtract.value1" output="x_sx_cosT"/>
+        <conn input="make_point2.y" output="add"/>
+        <conn input="x_sx.value1" output="x"/>
+        <conn input="x_sx.value2" output="sx"/>
+        <conn input="y_sy_sinT.value2" output="sin"/>
+        <conn input="subtract.value2" output="y_sy_sinT"/>
+        <conn input="x_sx_sinT.value2" output="sin"/>
+        <conn input="add.value1" output="x_sx_sinT"/>
+        <conn input="x_sx_sinT.value1" output="x_sx"/>
+        <conn input="y_sy_sinT.value1" output="y_sy"/>
+        <conn input="y_sy.value1" output="y"/>
+        <conn input="y_sy.value2" output="sy"/>
+        <conn input="combine4.list1" output="combine2"/>
+        <conn input="combine4.list2" output="ellipse4"/>
+        <conn input="ellipse4.position" output="make_point3"/>
+        <conn input="make_point3.x" output="x_sx"/>
+        <conn input="make_point3.y" output="y_sy"/>
+        <conn input="y_sy_cosT.value2" output="cos"/>
+        <conn input="add.value2" output="y_sy_cosT"/>
+        <conn input="y_sy_cosT.value1" output="y_sy"/>
+        <conn input="radians_angle.degrees" output="angle"/>
+        <conn input="cos.value" output="radians_angle"/>
+        <conn input="sin.value" output="radians_angle"/>
+        <conn input="subtract1.value1" output="frame1"/>
+        <conn input="angle.value" output="subtract1"/>
+        <conn input="y_sx.value1" output="y"/>
+        <conn input="y_sx.value2" output="sx"/>
+        <conn input="x_sy.value1" output="x"/>
+        <conn input="x_sy.value2" output="sy"/>
+        <conn input="ellipse5.position" output="make_point4"/>
+        <conn input="combine5.list2" output="ellipse5"/>
+        <conn input="make_point4.x" output="subtract2"/>
+        <conn input="make_point4.y" output="add1"/>
+        <conn input="combine5.list1" output="combine2"/>
+        <conn input="subtract2.value1" output="x_sx_cosT"/>
+        <conn input="add1.value2" output="y_sy_cosT"/>
+        <conn input="subtract2.value2" output="y_sx_sinT"/>
+        <conn input="y_sx_sinT.value1" output="y_sx"/>
+        <conn input="y_sx_sinT.value2" output="sin"/>
+        <conn input="x_sy_sinT.value2" output="sin"/>
+        <conn input="x_sy_sinT.value1" output="x_sy"/>
+        <conn input="add1.value1" output="x_sy_sinT"/>
+    </node>
+</ndbx>
