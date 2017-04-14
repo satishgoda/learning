@@ -40,11 +40,12 @@ Example 2
 .. code::
 
     positions = [point1, point2, ..., point36] <= grid1.points
-           width = 25
-           height = 25  
+    width = 25
+    height = 25  
+    
     for position in positions:
-               shape = ellipse(position.x, position.y, width, height)
-               scene.add(shape)
+        shape = ellipse(position.x, position.y, width, height)
+        scene.add(shape)
 
     len(scene.shapes) == 36
 
