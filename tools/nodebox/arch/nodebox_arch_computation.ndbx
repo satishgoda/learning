@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="b966b941-ea71-42c0-ac96-b54eba79a615">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="translate2">
+        <node name="combine1" position="35.00,9.00" prototype="list.combine"/>
+        <node name="ellipse1" position="2.00,11.00" prototype="corevector.ellipse"/>
+        <node name="ellipse2" position="12.00,11.00" prototype="corevector.ellipse">
+            <port name="width" type="float" value="25.0"/>
+            <port name="height" type="float" value="25.0"/>
+        </node>
+        <node name="ellipse3" position="22.00,9.00" prototype="corevector.ellipse">
+            <port name="width" type="float" value="25.0"/>
+            <port name="height" type="float" value="25.0"/>
+        </node>
+        <node name="ellipse4" position="33.00,8.00" prototype="corevector.ellipse">
+            <port name="width" type="float" value="25.0"/>
+            <port name="height" type="float" value="25.0"/>
+        </node>
+        <node name="grid1" position="12.00,9.00" prototype="corevector.grid">
+            <port name="columns" type="int" value="6"/>
+            <port name="rows" type="int" value="6"/>
+        </node>
+        <node name="grid2" position="25.00,9.00" prototype="corevector.grid">
+            <port name="columns" type="int" value="6"/>
+            <port name="rows" type="int" value="6"/>
+        </node>
+        <node name="grid3" position="38.00,9.00" prototype="corevector.grid">
+            <port name="columns" type="int" value="5"/>
+            <port name="rows" type="int" value="5"/>
+        </node>
+        <node name="rect1" position="36.00,8.00" prototype="corevector.rect">
+            <port name="width" type="float" value="50.0"/>
+            <port name="height" type="float" value="50.0"/>
+        </node>
+        <node name="translate1" position="23.00,11.00" prototype="corevector.translate"/>
+        <node name="translate2" position="36.00,11.00" prototype="corevector.translate"/>
+        <conn input="ellipse2.position" output="grid1"/>
+        <conn input="translate2.translate" output="grid3"/>
+        <conn input="combine1.list1" output="ellipse4"/>
+        <conn input="combine1.list2" output="rect1"/>
+        <conn input="translate2.shape" output="combine1"/>
+        <conn input="translate1.translate" output="grid2"/>
+        <conn input="translate1.shape" output="ellipse3"/>
+    </node>
+</ndbx>
