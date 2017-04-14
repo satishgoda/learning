@@ -57,17 +57,12 @@ Example 3
 .. code::
 
     shape = ellipse3.output
-
     translate = [point1, point2, ..., point36]
 
-
     for translation in translate:
-
-               new_shape = shape.clone()
-
-    new_shape.position = translation
-
-               scene.add(new_shape)
+        new_shape = shape.clone()
+        new_shape.position = translation
+        scene.add(new_shape)
 
     len(scene.shapes) == 36
 
@@ -79,20 +74,14 @@ Example 4
 
 .. code::
 
-    shapes = [ellipse(), rect()] <= combine1.output
-
+    shapes = [ellipse(0, 0, 25, 25), rect(0, 0, 50, 50, 0, 0)] <= combine1.output
     translate = [point1, point2, ..., point36] <= grid3.output
-
 
     num_shapes = len(shapes)
 
-
     for index, translation in enumerate(translate):
-
-               new_shape = shapes[index%num_shapes].clone()
-
-    new_shape.position = translation
-
-               scene.add(new_shape)
+        new_shape = shapes[index%num_shapes].clone()
+        new_shape.position = translation
+        scene.add(new_shape)
 
     len(scene.shapes) == 36
