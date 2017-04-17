@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="b8148358-606d-4979-8567-e12e13dc55b6">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="reverse1">
+        <node name="SB_x" position="7.00,2.00" prototype="list.combine"/>
+        <node name="SB_y" position="11.00,2.00" prototype="list.combine"/>
+        <node name="angle" position="9.00,-2.00" prototype="math.number">
+            <port name="value" type="float" value="80.0"/>
+        </node>
+        <node name="co_x" position="7.00,-3.00" prototype="math.number">
+            <port name="value" type="float" value="100.0"/>
+        </node>
+        <node name="co_x1" position="8.00,5.00" prototype="list.first"/>
+        <node name="co_x1y1" outputType="geometry" position="10.00,6.00" prototype="core.network" renderedChild="colorize">
+            <node name="co_xy" position="2.00,-1.00" prototype="corevector.make_point"/>
+            <node position="2.00,1.00" prototype="corevector.colorize">
+                <port name="fill" type="color" value="#00ff00ff"/>
+                <port name="strokeWidth" type="float" value="1.0"/>
+            </node>
+            <node position="2.00,0.00" prototype="corevector.ellipse">
+                <port name="width" type="float" value="5.0"/>
+                <port name="height" type="float" value="5.0"/>
+            </node>
+            <port childReference="co_xy.x" description="The X position of the point." label="" name="x" range="value" type="float" value="0.0" widget="float"/>
+            <port childReference="co_xy.y" description="The Y position of the point." label="" name="y" range="value" type="float" value="0.0" widget="float"/>
+            <port childReference="colorize.fill" description="The new fill color. Set alpha to 0 for no fill." label="" name="color" range="value" type="color" value="#00ff00ff" widget="color"/>
+            <conn input="ellipse.position" output="co_xy"/>
+            <conn input="colorize.shape" output="ellipse"/>
+        </node>
+        <node name="co_xy" outputType="geometry" position="14.00,6.00" prototype="core.network" renderedChild="colorize">
+            <node name="co_xy" position="19.00,3.00" prototype="corevector.make_point"/>
+            <node position="19.00,5.00" prototype="corevector.colorize">
+                <port name="fill" type="color" value="#f90000ff"/>
+                <port name="strokeWidth" type="float" value="1.0"/>
+            </node>
+            <node position="19.00,4.00" prototype="corevector.ellipse">
+                <port name="width" type="float" value="5.0"/>
+                <port name="height" type="float" value="5.0"/>
+            </node>
+            <port childReference="co_xy.x" description="The X position of the point." label="" name="x" range="value" type="float" value="0.0" widget="float"/>
+            <port childReference="co_xy.y" description="The Y position of the point." label="" name="y" range="value" type="float" value="0.0" widget="float"/>
+            <port childReference="colorize.fill" description="The new fill color. Set alpha to 0 for no fill." label="" name="color" range="value" type="color" value="#f90000ff" widget="color"/>
+            <conn input="ellipse.position" output="co_xy"/>
+            <conn input="colorize.shape" output="ellipse"/>
+        </node>
+        <node name="co_y" position="11.00,-3.00" prototype="math.number"/>
+        <node name="co_y1" position="11.00,5.00" prototype="list.last"/>
+        <node name="combine4" position="11.00,7.00" prototype="list.combine"/>
+        <node position="7.00,0.00" prototype="math.cos"/>
+        <node name="lin_comb" position="10.00,4.00" prototype="math.add"/>
+        <node position="11.00,1.00" prototype="math.negate"/>
+        <node name="radians1" position="9.00,-1.00" prototype="math.radians"/>
+        <node name="reverse1" position="11.00,8.00" prototype="list.reverse"/>
+        <node position="11.00,0.00" prototype="math.sin"/>
+        <node name="xMULTSB_x" position="8.00,3.00" prototype="math.multiply"/>
+        <node name="yMULTSB_y" position="11.00,3.00" prototype="math.multiply"/>
+        <conn input="reverse1.list" output="combine4"/>
+        <conn input="radians1.degrees" output="angle"/>
+        <conn input="co_xy.x" output="co_x"/>
+        <conn input="co_xy.y" output="co_y"/>
+        <conn input="combine4.list6" output="co_xy"/>
+        <conn input="co_x1y1.x" output="co_x1"/>
+        <conn input="co_x1y1.y" output="co_y1"/>
+        <conn input="combine4.list5" output="co_x1y1"/>
+        <conn input="cos.value" output="radians1"/>
+        <conn input="SB_y.list2" output="cos"/>
+        <conn input="SB_x.list1" output="cos"/>
+        <conn input="sin.value" output="radians1"/>
+        <conn input="SB_x.list2" output="sin"/>
+        <conn input="SB_y.list1" output="negate"/>
+        <conn input="negate.value" output="sin"/>
+        <conn input="xMULTSB_x.value2" output="co_x"/>
+        <conn input="xMULTSB_x.value1" output="SB_x"/>
+        <conn input="yMULTSB_y.value2" output="co_y"/>
+        <conn input="yMULTSB_y.value1" output="SB_y"/>
+        <conn input="co_x1.list" output="lin_comb"/>
+        <conn input="co_y1.list" output="lin_comb"/>
+        <conn input="lin_comb.value1" output="xMULTSB_x"/>
+        <conn input="lin_comb.value2" output="yMULTSB_y"/>
+    </node>
+</ndbx>
