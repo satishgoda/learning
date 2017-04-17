@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ndbx formatVersion="21" type="file" uuid="b8148358-606d-4979-8567-e12e13dc55b6">
+    <property name="canvasHeight" value="1000"/>
+    <property name="canvasWidth" value="1000"/>
+    <property name="canvasX" value="0"/>
+    <property name="canvasY" value="0"/>
+    <node name="root" prototype="core.network" renderedChild="reverse1">
+        <node name="SB_x" position="7.00,3.00" prototype="list.combine"/>
+        <node name="SB_xy" position="2.00,4.00" prototype="list.combine"/>
+        <node name="SB_y" position="11.00,3.00" prototype="list.combine"/>
+        <node name="add1" position="10.00,6.00" prototype="math.add"/>
+        <node name="angle" position="9.00,-2.00" prototype="math.number">
+            <port name="value" type="float" value="90.0"/>
+        </node>
+        <node name="angle1" position="7.00,11.00" prototype="math.angle"/>
+        <node name="co_x" position="16.00,-2.00" prototype="math.number">
+            <port name="value" type="float" value="100.0"/>
+        </node>
+        <node name="co_x1" position="9.00,8.00" prototype="list.first"/>
+        <node name="co_x1y1" position="11.00,9.00" prototype="corevector.make_point"/>
+        <node name="co_xy" position="18.00,5.00" prototype="corevector.make_point"/>
+        <node name="co_y" position="19.00,-2.00" prototype="math.number"/>
+        <node name="co_y1" position="12.00,8.00" prototype="list.last"/>
+        <node name="colorize1" position="18.00,7.00" prototype="corevector.colorize">
+            <port name="fill" type="color" value="#f90000ff"/>
+            <port name="strokeWidth" type="float" value="1.0"/>
+        </node>
+        <node name="colorize2" position="11.00,11.00" prototype="corevector.colorize">
+            <port name="fill" type="color" value="#00fb00ff"/>
+            <port name="strokeWidth" type="float" value="1.0"/>
+        </node>
+        <node name="combine4" position="11.00,15.00" prototype="list.combine"/>
+        <node name="cos1" position="7.00,0.00" prototype="math.cos"/>
+        <node name="ellipse1" position="18.00,6.00" prototype="corevector.ellipse">
+            <port name="width" type="float" value="5.0"/>
+            <port name="height" type="float" value="5.0"/>
+        </node>
+        <node name="ellipse2" position="11.00,10.00" prototype="corevector.ellipse">
+            <port name="width" type="float" value="5.0"/>
+            <port name="height" type="float" value="5.0"/>
+        </node>
+        <node name="multiply1" position="8.00,5.00" prototype="math.multiply"/>
+        <node name="multiply2" position="11.00,5.00" prototype="math.multiply"/>
+        <node name="negate1" position="11.00,1.00" prototype="math.negate"/>
+        <node name="radians1" position="9.00,-1.00" prototype="math.radians"/>
+        <node name="reverse1" position="11.00,16.00" prototype="list.reverse"/>
+        <node name="sin1" position="11.00,0.00" prototype="math.sin"/>
+        <node name="slice1" position="0.00,5.00" prototype="list.slice">
+            <port name="size" type="int" value="2"/>
+        </node>
+        <node name="slice2" position="3.00,5.00" prototype="list.slice">
+            <port name="start_index" type="int" value="2"/>
+            <port name="size" type="int" value="2"/>
+        </node>
+        <node name="textpath1" position="7.00,12.00" prototype="corevector.textpath"/>
+        <conn input="cos1.value" output="radians1"/>
+        <conn input="sin1.value" output="radians1"/>
+        <conn input="negate1.value" output="sin1"/>
+        <conn input="add1.value1" output="multiply1"/>
+        <conn input="add1.value2" output="multiply2"/>
+        <conn input="reverse1.list" output="combine4"/>
+        <conn input="radians1.degrees" output="angle"/>
+        <conn input="multiply1.value2" output="co_x"/>
+        <conn input="multiply2.value2" output="co_y"/>
+        <conn input="co_xy.x" output="co_x"/>
+        <conn input="co_xy.y" output="co_y"/>
+        <conn input="co_x1.list" output="add1"/>
+        <conn input="co_y1.list" output="add1"/>
+        <conn input="co_x1y1.x" output="co_x1"/>
+        <conn input="co_x1y1.y" output="co_y1"/>
+        <conn input="SB_y.list1" output="negate1"/>
+        <conn input="SB_y.list2" output="cos1"/>
+        <conn input="SB_x.list1" output="cos1"/>
+        <conn input="SB_x.list2" output="sin1"/>
+        <conn input="multiply1.value1" output="SB_x"/>
+        <conn input="multiply2.value1" output="SB_y"/>
+        <conn input="slice1.list" output="SB_xy"/>
+        <conn input="slice2.list" output="SB_xy"/>
+        <conn input="angle1.point2" output="co_x1y1"/>
+        <conn input="textpath1.text" output="angle1"/>
+        <conn input="ellipse1.position" output="co_xy"/>
+        <conn input="combine4.list6" output="colorize1"/>
+        <conn input="combine4.list5" output="colorize2"/>
+        <conn input="ellipse2.position" output="co_x1y1"/>
+        <conn input="colorize1.shape" output="ellipse1"/>
+        <conn input="colorize2.shape" output="ellipse2"/>
+        <conn input="combine4.list4" output="textpath1"/>
+    </node>
+</ndbx>
