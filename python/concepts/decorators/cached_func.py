@@ -1,12 +1,14 @@
 import pdb
 import inspect
+import os
 
 def add(x, y):
     return x + y
 
 def cached(func):
     def cachedfunc(*pargs, **kwargs):
-        # pdb.set_trace()
+        if os.environ.get('DEBUG_CACHED'):
+            pdb.set_trace()
         if (pargs, tuple(kwargs.items())) in func.__dict__:
             return func.__dict__[(pargs, tuple(kwargs.items()))]
         result = func(*pargs, **kwargs)
@@ -27,10 +29,31 @@ def add2(x, y):
     """
     return x + y
 
-print add2(2, 3) # value is computed and cached
-print add2(3, 2) # value is computed and cached
-print add2(2, 3) # value is returned from the cache
+os.environ['DEBUG_CACHED'] = "1"
 
+print add2(2, 3) # value is computed and cached
+5
+
+print add2.func_closure[0].cell_contents.__dict__
+{((2, 3), ()): 5}
+
+del os.environ['DEBUG_CACHED']
+
+print add2(3, 2) # value is computed and cached
+5
+
+print add2.func_closure[0].cell_contents.__dict__
+{((3, 2), ()): 5, ((2, 3), ()): 5}
+
+os.environ['DEBUG_CACHED'] = "1"
+
+print add2(2, 3) # value is returned from the cache
+5
+
+print add2.func_closure[0].cell_contents.__dict__
+{((3, 2), ()): 5, ((2, 3), ()): 5}
+
+"""
 >>> add2.func_closure
 (<cell at 0x24994b0: function object at 0x23ef398>,)
 
@@ -42,3 +65,4 @@ print add2(2, 3) # value is returned from the cache
 
 >>> inspect.isfunction(add2.func_closure[0].cell_contents)
 True
+"""
