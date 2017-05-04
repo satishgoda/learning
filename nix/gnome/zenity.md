@@ -1,18 +1,19 @@
 
 
-http://linux.byexamples.com/archives/265/a-complete-zenity-dialog-examples-2/
-https://help.gnome.org/users/zenity/stable/list.html.en
+* http://linux.byexamples.com/archives/265/a-complete-zenity-dialog-examples-2/
+* https://help.gnome.org/users/zenity/stable/list.html.en
 
-  >> result=`zenity --list --text="Choose your dreams" --column=id --column="First Name" --column="Last Name" --multiple 1 Satish Goda 2 Swetha Goda 3 Samhita Goda`
+ >> result=`zenity --list --text="Choose your dreams" --column=id --column="First Name" --column="Last Name" --multiple 1 Satish Goda 2 Swetha Goda 3 Samhita Goda`
 
   >> echo $result
   1|2|3
 
-  >> echo $result | tr '|' '\n'
-  1
-  2
-  3
-
+ 
+ >> echo $result | tr '|' '\n'
+ 1
+ 2
+ 3
+ 
   [sgoda@orangebat test]$ zenity --help-list
   Usage:
     zenity [OPTION...]
